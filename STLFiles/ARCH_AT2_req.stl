@@ -1,0 +1,50 @@
+# Automatically generated STL formula
+# Model: ARCH_AT2
+# Requirement: ARCH_AT2_req
+# Author: Johan Lid�n Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ARCH_AT2 = 0, t_final_ARCH_AT2 = 10, dt = 0.04, ARCH_AT2_rpmLimit = 4750
+
+##########
+# Inport #
+##########
+# ARCH_AT2_req_sub1 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT2_req_sub2 := ARCH_AT2_rpmLimit
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT2_req_sub3 := (RPM[t] < ARCH_AT2_rpmLimit)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := (RPM[t] < ARCH_AT2_rpmLimit)
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := (RPM[t] < ARCH_AT2_rpmLimit)
+
+phi_ARCH_AT2_req := alw_[t_init_ARCH_AT2,t_final_ARCH_AT2]((RPM[t] < ARCH_AT2_rpmLimit))
+

@@ -1,0 +1,73 @@
+# Automatically generated STL formula
+# Model: ARCH_AT6c
+# Requirement: ARCH_AT6c_act
+# Author: Johan Lid�n Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ARCH_AT6c = 0, t_final_ARCH_AT6c = 30, dt = 0.04, ARCH_AT6c_rpmThreshold = 3000
+
+##########
+# Inport #
+##########
+# ARCH_AT6c_act_sub1 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT6c_act_sub2 := ARCH_AT6c_rpmThreshold
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT6c_act_sub3 := (RPM[t] <= ARCH_AT6c_rpmThreshold)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+# Start of SubSystem (Detect Change) #
+	#############
+	# UnitDelay #
+	#############
+	# ARCH_AT6c_act_sub4 := (RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ARCH_AT6c_act_sub5 := (((RPM[t] <= ARCH_AT6c_rpmThreshold) and not((RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold))) or (not((RPM[t] <= ARCH_AT6c_rpmThreshold)) and (RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold)))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (Detect Change) #
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := (((RPM[t] <= ARCH_AT6c_rpmThreshold) and not((RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold))) or (not((RPM[t] <= ARCH_AT6c_rpmThreshold)) and (RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold)))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := (((RPM[t] <= ARCH_AT6c_rpmThreshold) and not((RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold))) or (not((RPM[t] <= ARCH_AT6c_rpmThreshold)) and (RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold)))
+
+phi_ARCH_AT6c_act := alw_[t_init_ARCH_AT6c + 1*dt,t_final_ARCH_AT6c](not((((RPM[t] <= ARCH_AT6c_rpmThreshold) and not((RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold))) or (not((RPM[t] <= ARCH_AT6c_rpmThreshold)) and (RPM[t-1*dt] <= ARCH_AT6c_rpmThreshold)))))
+

@@ -1,0 +1,227 @@
+# Automatically generated STL formula
+# Model: AOT
+# Requirement: AOT_req
+# Author: Johan Lid�n Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_AOT = 0, t_final_AOT = 10, dt = 0.04, AOT_speedLimit = 70, AOT_rpmLimit = 2000, fixedStepSize = 0.04, AOT_notAlwaysHorizon = 1, AOT_gear = 3, AOT_gearSelectionState = 1
+
+##########
+# Inport #
+##########
+# AOT_req_sub1 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_req_sub2 := AOT_speedLimit
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_req_sub3 := (speed[t] < AOT_speedLimit)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# AOT_req_sub4 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#######
+# Abs #
+#######
+# AOT_req_sub5 := abs(RPM[t])
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_req_sub6 := AOT_rpmLimit
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_req_sub7 := (abs(RPM[t]) <= AOT_rpmLimit)
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# AOT_req_sub8 := fixedStepSize
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_req_sub9 := AOT_notAlwaysHorizon
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# AOT_req_sub10 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_req_sub11 := AOT_gear
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_req_sub12 := (gear[t] == AOT_gear)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# AOT_req_sub13 := gearSelectionState[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_req_sub14 := AOT_gearSelectionState
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_req_sub15 := (gearSelectionState[t] == AOT_gearSelectionState)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AOT_req_sub16 := ((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#############
+# SubSystem #
+#############
+# AOT_req_sub17 := (not(hist_[0, 25*dt](((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState)))))
+# Depth: 		4
+# Modal depth: 	1
+# Start delay: 	25
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AOT_req_sub18 := (((speed[t] < AOT_speedLimit)  or  (abs(RPM[t]) <= AOT_rpmLimit))  or  (not(hist_[0, 25*dt](((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))))))
+# Depth: 		5
+# Modal depth: 	1
+# Start delay: 	25
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# AOT_req_sub19 := 1
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Switch #
+##########
+# AOT_req_sub20 := (((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState)) and (((speed[t] < AOT_speedLimit)  or  (abs(RPM[t]) <= AOT_rpmLimit))  or  (not(hist_[0, 25*dt](((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))))))) or(not(((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))) and 1)
+# Depth: 		7
+# Modal depth: 	1
+# Start delay: 	25
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# Prerequisite 1 #
+# sub16[t] ~= 0
+# prereq1 := ((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))
+# phi_sub1 := (((speed[t] < AOT_speedLimit)  or  (abs(RPM[t]) <= AOT_rpmLimit))  or  (not(hist_[0, 25*dt](((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))))))
+
+# Prerequisite 2 #
+# sub16[t] == 0
+# prereq2 := not(((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState)))
+# phi_sub2 := 1
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := (((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState)) => (((speed[t] < AOT_speedLimit)  or  (abs(RPM[t]) <= AOT_rpmLimit))  or  (not(hist_[0, 25*dt](((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))))))) and (not(((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))) => 1)
+
+phi_AOT_req := alw_[t_init_AOT + 25*dt,t_final_AOT]((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState)) and (((speed[t] < AOT_speedLimit)  or  (abs(RPM[t]) <= AOT_rpmLimit))  or  (not(hist_[0, 25*dt](((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))))))) or (not(((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))) and 1))
+

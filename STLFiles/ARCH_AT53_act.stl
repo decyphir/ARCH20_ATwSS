@@ -1,0 +1,73 @@
+# Automatically generated STL formula
+# Model: ARCH_AT53
+# Requirement: ARCH_AT53_act
+# Author: Johan Lid�n Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ARCH_AT53 = 0, t_final_ARCH_AT53 = 30, dt = 0.04
+
+##########
+# Inport #
+##########
+# ARCH_AT53_act_sub1 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT53_act_sub2 := 3
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT53_act_sub3 := (gear[t] == 3)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+	#############
+	# UnitDelay #
+	#############
+	# ARCH_AT53_act_sub4 := (gear[t-1*dt] == 3)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ARCH_AT53_act_sub5 := ((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := ((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := ((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))
+
+phi_ARCH_AT53_act := alw_[t_init_ARCH_AT53 + 1*dt,t_final_ARCH_AT53](not(((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))))
+

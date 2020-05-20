@@ -1,0 +1,456 @@
+# Automatically generated STL formula
+# Model: BTL
+# Requirement: BTL_act2
+# Author: Johan Lid�n Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_BTL = 0, t_final_BTL = 10, dt = 0.04, fixedStepSize = 0.04, BTL_notAlwaysTime2 = 5, BTL_subsystem1_rpmLimit = 1500, BTL_subsystem1_speedLimit = 10, BTL_preconditionSpeedLim = 20, BTL_preconditionGear = 1, BTL_preconditionSub1Value = 2, BTL_preconditionSub1Value2 = 4, BTL_sub1Value2 = 4
+
+############
+# Constant #
+############
+# BTL_act2_sub1 := fixedStepSize
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# BTL_act2_sub2 := BTL_notAlwaysTime2
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# BTL_act2_sub3 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# BTL_act2_sub4 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# BTL_act2_sub5 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem1) #
+	############
+	# Constant #
+	############
+	# BTL_act2_sub6 := 4
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub7 := BTL_subsystem1_rpmLimit
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub8 := (RPM[t] <= BTL_subsystem1_rpmLimit)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub9 := BTL_subsystem1_speedLimit
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub10 := (speed[t] < BTL_subsystem1_speedLimit)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# BTL_act2_sub11 := ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub12 := 3
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub13 := (RPM[t] > BTL_subsystem1_rpmLimit)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# BTL_act2_sub14 := ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub15 := 2
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub16 := (speed[t] > BTL_subsystem1_speedLimit)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# BTL_act2_sub17 := ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub18 := 1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#########
+	# Logic #
+	#########
+	# BTL_act2_sub19 := ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub20 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#######
+	# Abs #
+	#######
+	# BTL_act2_sub21 := abs(speed[t])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub22 := (abs(speed[t]) <= BTL_subsystem1_speedLimit)
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub23 := 5
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# BTL_act2_sub24 := ((abs(speed[t]) <= BTL_subsystem1_speedLimit) and 0) or(not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and 5)
+	# Depth: 		4
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# BTL_act2_sub25 := (((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and 1) or(not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and 0) or(not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and 5)
+	# Depth: 		6
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# BTL_act2_sub26 := (((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and 2) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and 1) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and 0) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and 5)
+	# Depth: 		8
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# BTL_act2_sub27 := (((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and 3) or(not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and 2) or(not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and 1) or(not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and 0) or(not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and 5)
+	# Depth: 		10
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# BTL_act2_sub28 := (((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and 4) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and 3) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and 2) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and 1) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and 0) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and 5)
+	# Depth: 		12
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+# End of SubSystem (subsystem1) #
+
+# Start of SubSystem (Preconditions) #
+	############
+	# Constant #
+	############
+	# BTL_act2_sub29 := BTL_preconditionSpeedLim
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub30 := (speed[t] < BTL_preconditionSpeedLim)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub31 := BTL_preconditionGear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub32 := (gear[t] == BTL_preconditionGear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub33 := BTL_preconditionSub1Value
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub34 := (((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and (4 == BTL_preconditionSub1Value)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and (3 == BTL_preconditionSub1Value)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and (2 == BTL_preconditionSub1Value)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and (1 == BTL_preconditionSub1Value)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and (0 == BTL_preconditionSub1Value)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and (5 == BTL_preconditionSub1Value))
+	# Depth: 		13
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# BTL_act2_sub35 := BTL_preconditionSub1Value2
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# BTL_act2_sub36 := (((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and (4 == BTL_preconditionSub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and (3 == BTL_preconditionSub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and (2 == BTL_preconditionSub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and (1 == BTL_preconditionSub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and (0 == BTL_preconditionSub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and (5 == BTL_preconditionSub1Value2))
+	# Depth: 		13
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# BTL_act2_sub37 := (((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((4 == BTL_preconditionSub1Value)  or  (4 == BTL_preconditionSub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((3 == BTL_preconditionSub1Value)  or  (3 == BTL_preconditionSub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and ((2 == BTL_preconditionSub1Value)  or  (2 == BTL_preconditionSub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((1 == BTL_preconditionSub1Value)  or  (1 == BTL_preconditionSub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and ((0 == BTL_preconditionSub1Value)  or  (0 == BTL_preconditionSub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and ((5 == BTL_preconditionSub1Value)  or  (5 == BTL_preconditionSub1Value2)))
+	# Depth: 		14
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# BTL_act2_sub38 := (((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and (((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((4 == BTL_preconditionSub1Value)  or  (4 == BTL_preconditionSub1Value2)))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and (((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((3 == BTL_preconditionSub1Value)  or  (3 == BTL_preconditionSub1Value2)))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and (((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((2 == BTL_preconditionSub1Value)  or  (2 == BTL_preconditionSub1Value2)))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and (((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((1 == BTL_preconditionSub1Value)  or  (1 == BTL_preconditionSub1Value2)))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and (((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((0 == BTL_preconditionSub1Value)  or  (0 == BTL_preconditionSub1Value2)))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and (((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((5 == BTL_preconditionSub1Value)  or  (5 == BTL_preconditionSub1Value2))))
+	# Depth: 		15
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (Preconditions) #
+
+############
+# Constant #
+############
+# BTL_act2_sub39 := BTL_sub1Value2
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# BTL_act2_sub40 := (((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and (4 == BTL_sub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and (3 == BTL_sub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and (2 == BTL_sub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and (1 == BTL_sub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and (0 == BTL_sub1Value2)) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and (5 == BTL_sub1Value2))
+# Depth: 		13
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# BTL_act2_sub41 := (((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((4 == BTL_preconditionSub1Value)  or  (4 == BTL_preconditionSub1Value2)))  and  (4 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((3 == BTL_preconditionSub1Value)  or  (3 == BTL_preconditionSub1Value2)))  and  (3 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((2 == BTL_preconditionSub1Value)  or  (2 == BTL_preconditionSub1Value2)))  and  (2 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((1 == BTL_preconditionSub1Value)  or  (1 == BTL_preconditionSub1Value2)))  and  (1 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((0 == BTL_preconditionSub1Value)  or  (0 == BTL_preconditionSub1Value2)))  and  (0 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((5 == BTL_preconditionSub1Value)  or  (5 == BTL_preconditionSub1Value2)))  and  (5 == BTL_sub1Value2)))
+# Depth: 		16
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#############
+# SubSystem #
+#############
+# BTL_act2_sub42 := (not(hist_[0, 125*dt]((((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((4 == BTL_preconditionSub1Value)  or  (4 == BTL_preconditionSub1Value2)))  and  (4 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((3 == BTL_preconditionSub1Value)  or  (3 == BTL_preconditionSub1Value2)))  and  (3 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((2 == BTL_preconditionSub1Value)  or  (2 == BTL_preconditionSub1Value2)))  and  (2 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((1 == BTL_preconditionSub1Value)  or  (1 == BTL_preconditionSub1Value2)))  and  (1 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((0 == BTL_preconditionSub1Value)  or  (0 == BTL_preconditionSub1Value2)))  and  (0 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((5 == BTL_preconditionSub1Value)  or  (5 == BTL_preconditionSub1Value2)))  and  (5 == BTL_sub1Value2))))))
+# Depth: 		18
+# Modal depth: 	1
+# Start delay: 	125
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# BTL_act2_sub43 := not((not(hist_[0, 125*dt]((((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((4 == BTL_preconditionSub1Value)  or  (4 == BTL_preconditionSub1Value2)))  and  (4 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((3 == BTL_preconditionSub1Value)  or  (3 == BTL_preconditionSub1Value2)))  and  (3 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((2 == BTL_preconditionSub1Value)  or  (2 == BTL_preconditionSub1Value2)))  and  (2 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((1 == BTL_preconditionSub1Value)  or  (1 == BTL_preconditionSub1Value2)))  and  (1 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((0 == BTL_preconditionSub1Value)  or  (0 == BTL_preconditionSub1Value2)))  and  (0 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((5 == BTL_preconditionSub1Value)  or  (5 == BTL_preconditionSub1Value2)))  and  (5 == BTL_sub1Value2)))))))
+# Depth: 		19
+# Modal depth: 	1
+# Start delay: 	125
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := not((not(hist_[0, 125*dt]((((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((4 == BTL_preconditionSub1Value)  or  (4 == BTL_preconditionSub1Value2)))  and  (4 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((3 == BTL_preconditionSub1Value)  or  (3 == BTL_preconditionSub1Value2)))  and  (3 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((2 == BTL_preconditionSub1Value)  or  (2 == BTL_preconditionSub1Value2)))  and  (2 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((1 == BTL_preconditionSub1Value)  or  (1 == BTL_preconditionSub1Value2)))  and  (1 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((0 == BTL_preconditionSub1Value)  or  (0 == BTL_preconditionSub1Value2)))  and  (0 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((5 == BTL_preconditionSub1Value)  or  (5 == BTL_preconditionSub1Value2)))  and  (5 == BTL_sub1Value2)))))))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := not((not(hist_[0, 125*dt]((((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((4 == BTL_preconditionSub1Value)  or  (4 == BTL_preconditionSub1Value2)))  and  (4 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((3 == BTL_preconditionSub1Value)  or  (3 == BTL_preconditionSub1Value2)))  and  (3 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((2 == BTL_preconditionSub1Value)  or  (2 == BTL_preconditionSub1Value2)))  and  (2 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((1 == BTL_preconditionSub1Value)  or  (1 == BTL_preconditionSub1Value2)))  and  (1 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((0 == BTL_preconditionSub1Value)  or  (0 == BTL_preconditionSub1Value2)))  and  (0 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((5 == BTL_preconditionSub1Value)  or  (5 == BTL_preconditionSub1Value2)))  and  (5 == BTL_sub1Value2)))))))
+
+phi_BTL_act2 := alw_[t_init_BTL + 125*dt,t_final_BTL](not(not((not(hist_[0, 125*dt]((((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((4 == BTL_preconditionSub1Value)  or  (4 == BTL_preconditionSub1Value2)))  and  (4 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and ((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((3 == BTL_preconditionSub1Value)  or  (3 == BTL_preconditionSub1Value2)))  and  (3 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and ((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((2 == BTL_preconditionSub1Value)  or  (2 == BTL_preconditionSub1Value2)))  and  (2 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and ((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((1 == BTL_preconditionSub1Value)  or  (1 == BTL_preconditionSub1Value2)))  and  (1 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and (abs(speed[t]) <= BTL_subsystem1_speedLimit) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((0 == BTL_preconditionSub1Value)  or  (0 == BTL_preconditionSub1Value2)))  and  (0 == BTL_sub1Value2))) or(not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] < BTL_subsystem1_speedLimit))) and not(((speed[t] < BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not(((RPM[t] <= BTL_subsystem1_rpmLimit)  and  (speed[t] > BTL_subsystem1_speedLimit))) and not(((speed[t] > BTL_subsystem1_speedLimit)  and  (RPM[t] > BTL_subsystem1_rpmLimit))) and not((abs(speed[t]) <= BTL_subsystem1_speedLimit)) and ((((speed[t] < BTL_preconditionSpeedLim)  and  (gear[t] == BTL_preconditionGear))  and  ((5 == BTL_preconditionSub1Value)  or  (5 == BTL_preconditionSub1Value2)))  and  (5 == BTL_sub1Value2)))))))))
+

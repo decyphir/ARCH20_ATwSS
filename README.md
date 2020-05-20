@@ -26,7 +26,14 @@ These files can be re-generated using scripts provided in the repo.
 
 ### Getting tools 
 
-We provide scripts and functions to get started with the falsification. The tools Breach and specTransformer are provided for testing and experimentation. 
+We provide scripts and functions to get started with the falsification. The tools Breach and specTransformer are provided for testing and experimentation. They are provided as submodules for the repo. To get them, you need to run the following after cloning this repo: 
+
+```
+$ git submodule init
+$ git submodule update
+
+```
+No additional steps should be needed to install these tools.
 
 ### Testing
 

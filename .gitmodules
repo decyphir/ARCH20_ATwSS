@@ -1,6 +1,6 @@
 [submodule "breach"]
 	path = breach
-	url = https://github.com/JohanEddelanda/breach.git
+	url = https://github.com/JohanEddeland/breach.git
 [submodule "specTransformer"]
 	path = specTransformer
 	url = https://github.com/JohanEddeland/specTransformer.git

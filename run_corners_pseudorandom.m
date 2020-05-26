@@ -6,7 +6,6 @@ init_ATwSS;
 % Start timing of this function
 startTime = tic;
 
-
 %% Interactive initialization
 [B, R, currentReqs, params]= setup_ATwSS;
 

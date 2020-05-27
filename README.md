@@ -39,9 +39,17 @@ No additional steps should be needed to install these tools.
 
 Running 
 ```
->> run_corners_pseudo_random 
+>> run_corners_pseudorandom 
 ```
 will let you choose first specification models to convert into STL formulas, and then specific instances of parameter values. Several requirement can be chose but you should pick either 'base' or one of the 'hard' instances for each requirement. By default, 'base' instances should be easy to falsify whereas 'hard' instances should be more challenging. 
+
+The file `initializeReqParameters.m` contains the parameters definition for all instances. For example, the following lines
+```
+hard_cfg.AFE_req.AFE_speedMin = [59 50];
+hard_cfg.AFE_req.AFE_subsystem1_notAlwaysTimeHorizon = [0.1 5];
+```
+mean that the requirement  `AFE_req` has two hard configurations determined by values of parameters `AFE_speedMin` and `AFE_subsystem1_notAlwaysTimeHorizon`. Other parameters for this requirement are set by the structure `base_cfg.AFE_req`. 
+
 
 The script will run falsification for 50 corners samples and 100 random samples then provide a summary of the result. 
 

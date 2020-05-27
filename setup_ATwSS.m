@@ -10,6 +10,7 @@ switch nargin
     case 0 
         % interactive mode
         list_models = arrayfun(@(c)(c.name), dir('specRefModels/*.slx'), 'UniformOutput', false);
+        list_models = setdiff(list_models, {'specifications.slx'});
         select_models = select_cell_gui(list_models, list_models, 'Pick one or more requirement models');
         if isequal(select_models,0)
             return;

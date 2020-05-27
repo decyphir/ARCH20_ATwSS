@@ -6,10 +6,12 @@ init_ATwSS;
 % Start timing of this function
 startTime = tic;
 
-
 %% Interactive initialization
 [B, R, currentReqs, params]= setup_ATwSS;
 
+if isempty(B)
+    return;
+end
 
 %% Initialize corners falsification problem
 max_num_corners = 50;

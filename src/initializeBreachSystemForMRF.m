@@ -17,8 +17,8 @@ for k = 1:nCP(1)
 end
 
 for k = 1:nCP(2)
-    % Set range of brake to [0 500]
-    eval(['B.SetParamRanges({''brake_u' num2str(k-1) '''}, [0 500]);']);
+    % Set range of brake to [0 325]
+    eval(['B.SetParamRanges({''brake_u' num2str(k-1) '''}, [0 325]);']);
 end
 
 % Setup disk caching

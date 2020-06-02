@@ -69,6 +69,9 @@ switch nargin
         
     case 1 % missing params 
         error('setup_ATwSS takes 0 (interactive mode) or 2 arguments: requirements and parameters structure.')
+        
+    case 2
+        currentReqs = reqs;
 end
 cellfun(@(c)(assignin('base', c, params.(c))), fieldnames(params));
 R = BreachRequirement(currentReqs);

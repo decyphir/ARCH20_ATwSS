@@ -1,27 +1,30 @@
+%% Parameters not specific to base/hard scenarios
 % Step size for Simulink model
-fixedStepSize = 0.04;
+nonspecific.fixedStepSize = 0.04;
 
-%% Initialize evaluation times for the different specs
 % Underlying assumption: _req and _act belonging to the same .slx file have
 % the same evaluation times
 % Example: ADA_req has evaluation time [0 10], meaning the formula is 
 %   alw_[0, 10](...)
-ADA_evalTime = [0 10];
-ADI_evalTime = [0 10];
-AFE_evalTime = [0 10];
-AOT_evalTime = [0 10];
-ARCH_AT1_evalTime = [0 20];
-ARCH_AT2_evalTime = [0 10];
-ARCH_AT51_evalTime = [0 30];
-ARCH_AT52_evalTime = [0 30];
-ARCH_AT53_evalTime = [0 30];
-ARCH_AT54_evalTime = [0 30];
-ARCH_AT6a_evalTime = [0 30];
-ARCH_AT6b_evalTime = [0 30];
-ARCH_AT6c_evalTime = [0 30];
-ASL_evalTime = [0 10];
-BTL_evalTime = [0 10];
-RFC_evalTime = [0 10];
+nonspecific.ADA_evalTime = [0 10];
+nonspecific.ADI_evalTime = [0 10];
+nonspecific.AFE_evalTime = [0 10];
+nonspecific.AOT_evalTime = [0 10];
+nonspecific.ARCH_AT1_evalTime = [0 20];
+nonspecific.ARCH_AT2_evalTime = [0 10];
+nonspecific.ARCH_AT51_evalTime = [0 30];
+nonspecific.ARCH_AT52_evalTime = [0 30];
+nonspecific.ARCH_AT53_evalTime = [0 30];
+nonspecific.ARCH_AT54_evalTime = [0 30];
+nonspecific.ARCH_AT6a_evalTime = [0 30];
+nonspecific.ARCH_AT6b_evalTime = [0 30];
+nonspecific.ARCH_AT6c_evalTime = [0 30];
+nonspecific.ASL_evalTime = [0 10];
+nonspecific.BTL_evalTime = [0 10];
+nonspecific.RFC_evalTime = [0 10];
+
+% Assign the non-specific parameter values in base workspace
+cellfun(@(c)(assignin('base', c, nonspecific.(c))), fieldnames(nonspecific));
 
 %% Initialize parameter values for Volvo-inspired specifications
 

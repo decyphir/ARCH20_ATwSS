@@ -16,6 +16,7 @@ switch nargin
             return;
         end
                 
+        fixedStepSize = evalin('base', 'fixedStepSize');
         [allReqs, allEndTimes] = ...
             createAndLoadRequirements(fixedStepSize, select_models);
         

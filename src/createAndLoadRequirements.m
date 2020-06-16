@@ -18,9 +18,17 @@ end
 
 if ischar(modelsSearch)
 allSpecificationModels = dir(modelsSearch);
-else
-    allSpecificationModels = cell2mat(cellfun(@(c)(dir(sprintf('specRefModels/%s',c))),  modelsSearch,  'UniformOutput',  false));
-    
+elseif iscell(modelsSearch)
+    if all(contains(modelsSearch, '_artificial'))
+        % Initializing for model with artificial inputs
+        % Use another folder specifically
+        resultsFolder = 'STLFiles_artificial';
+        allSpecificationModels = cell2mat(cellfun(@(c)(dir(sprintf('specRefModelsArtificial/%s',c))),  modelsSearch,  'UniformOutput',  false));
+    else
+        % Use normal folder
+        resultsFolder = 'STLFiles';
+        allSpecificationModels = cell2mat(cellfun(@(c)(dir(sprintf('specRefModels/%s',c))),  modelsSearch,  'UniformOutput',  false));
+    end
 end
     
 allReqs = {};
@@ -41,7 +49,7 @@ for specCounter = 1:numel(allSpecificationModels)
     
     thisModelName = strrep(fileName, '.slx', '');
     
-    resultsFolder = 'STLFiles';
+    
     if ~isfolder(resultsFolder)
         mkdir(resultsFolder);
     end

@@ -1,0 +1,143 @@
+# Automatically generated STL formula
+# Model: ARCH_AT53_artificial
+# Requirement: ARCH_AT53_req
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ARCH_AT53_artificial = 0, t_final_ARCH_AT53_artificial = 30, dt = 0.04, ARCH_AT53_timeHorizon = 2.5, fixedStepSize = 0.04
+
+############
+# Constant #
+############
+# ARCH_AT53_req_sub1 := ARCH_AT53_timeHorizon
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT53_req_sub2 := fixedStepSize
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ARCH_AT53_req_sub3 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT53_req_sub4 := 3
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT53_req_sub5 := (gear[t] == 3)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+	#############
+	# UnitDelay #
+	#############
+	# ARCH_AT53_req_sub6 := (gear[t-1*dt] == 3)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ARCH_AT53_req_sub7 := ((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+#############
+# SubSystem #
+#############
+# ARCH_AT53_req_sub8 := (once_[0, 62*dt]((((gear[t] == 3)  and not( (gear[t-1*dt] == 3))) and not(((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3))))) or (not(((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))) and ((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3))))))
+# Depth: 		4
+# Modal depth: 	1
+# Start delay: 	63
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ARCH_AT53_req_sub9 := not((once_[0, 62*dt]((((gear[t] == 3)  and not( (gear[t-1*dt] == 3))) and not(((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3))))) or (not(((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))) and ((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3)))))))
+# Depth: 		5
+# Modal depth: 	1
+# Start delay: 	63
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# ARCH_AT53_req_sub10 := 3
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT53_req_sub11 := (gear[t] == 3)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ARCH_AT53_req_sub12 := (not((once_[0, 62*dt]((((gear[t] == 3)  and not( (gear[t-1*dt] == 3))) and not(((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3))))) or (not(((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))) and ((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3)))))))  or  (gear[t] == 3))
+# Depth: 		6
+# Modal depth: 	0
+# Start delay: 	63
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := (not((once_[0, 62*dt]((((gear[t] == 3)  and not( (gear[t-1*dt] == 3))) and not(((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3))))) or (not(((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))) and ((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3)))))))  or  (gear[t] == 3))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := (not((once_[0, 62*dt]((((gear[t] == 3)  and not( (gear[t-1*dt] == 3))) and not(((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3))))) or (not(((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))) and ((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3)))))))  or  (gear[t] == 3))
+
+phi_ARCH_AT53_req := alw_[t_init_ARCH_AT53_artificial + 63*dt,t_final_ARCH_AT53_artificial]((not((once_[0, 62*dt]((((gear[t] == 3)  and not( (gear[t-1*dt] == 3))) and not(((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3))))) or (not(((gear[t] == 3)  and not( (gear[t-1*dt] == 3)))) and ((gear[t-1*dt] == 3)  and not( (gear[t-2*dt] == 3)))))))  or  (gear[t] == 3)))
+

@@ -1,0 +1,482 @@
+# Automatically generated STL formula
+# Model: ADI_artificial
+# Requirement: ADI_act3
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ADI_artificial = 0, t_final_ADI_artificial = 30, dt = 0.04, fixedStepSize = 0.04, ADI_subsystem4_notAlways1Horizon = 2.8, ADI_subsystem4_gear = 4, ADI_subsystem4_downThreshold = 80, ADI_subsystem4_RPM = 4000, ADI_subsystem4_throttle = 70, ADI_subsystem4_gearSelectionState = 3, ADI_subsystem4_upThreshold = 100, ADI_subsystem4_notAlwaysHorizon = 2
+
+##########
+# Inport #
+##########
+# ADI_act3_sub1 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act3_sub2 := downThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act3_sub3 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act3_sub4 := throttle[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act3_sub5 := gearSelectionState[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act3_sub6 := upThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem4) #
+	############
+	# Constant #
+	############
+	# ADI_act3_sub7 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub8 := ADI_subsystem4_notAlways1Horizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub9 := ADI_subsystem4_gear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act3_sub10 := (gear[t] == ADI_subsystem4_gear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub11 := ADI_subsystem4_downThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act3_sub12 := (downThreshold[t] >= ADI_subsystem4_downThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act3_sub13 := ((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub14 := ADI_subsystem4_RPM
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act3_sub15 := (RPM[t] > ADI_subsystem4_RPM)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub16 := ADI_subsystem4_throttle
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act3_sub17 := (throttle[t] > ADI_subsystem4_throttle)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub18 := ADI_subsystem4_gearSelectionState
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act3_sub19 := not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub20 := ADI_subsystem4_upThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act3_sub21 := (upThreshold[t] > ADI_subsystem4_upThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act3_sub22 := (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub23 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub24 := ADI_subsystem4_notAlwaysHorizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act3_sub25 := not((upThreshold[t] > ADI_subsystem4_upThreshold))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act3_sub26 := (not((upThreshold[t] > ADI_subsystem4_upThreshold))  and  ((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# UnitDelay #
+	#############
+	# ADI_act3_sub27 := (not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act3_sub28 := (not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))
+	# Depth: 		5
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act3_sub29 := not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))
+	# Depth: 		6
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act3_sub30 := ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))
+	# Depth: 		7
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act3_sub31 := (((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))))
+	# Depth: 		8
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act3_sub32 := (not(hist_[0, 70*dt]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))))))
+	# Depth: 		10
+	# Modal depth: 	2
+	# Start delay: 	121
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+		#############
+		# UnitDelay #
+		#############
+		# ADI_act3_sub33 := ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))
+		# Depth: 		2
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ADI_act3_sub34 := (((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))
+		# Depth: 		3
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub35 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act3_sub36 := (not(0) and once_[0, 30]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))
+	# Depth: 		5
+	# Modal depth: 	1
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act3_sub37 := ((not(0) and once_[0, 30]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))))
+	# Depth: 		8
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+		#############
+		# UnitDelay #
+		#############
+		# ADI_act3_sub38 := ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))
+		# Depth: 		2
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ADI_act3_sub39 := (((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))
+		# Depth: 		3
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act3_sub40 := (not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and (((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))) or UnitDelay1_1[t]))
+	# Depth: 		9
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Decrease) #
+		#############
+		# UnitDelay #
+		#############
+		# ADI_act3_sub41 := ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))
+		# Depth: 		2
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ADI_act3_sub42 := (not(((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)) ) and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))
+		# Depth: 		3
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Decrease) #
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act3_sub43 := (not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and ((not(((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)) ) and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))) or UnitDelay1_2[t]))
+	# Depth: 		5
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act3_sub44 := 1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# ADI_act3_sub45 := ((not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and ((not(((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)) ) and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))) or UnitDelay1_2[t])) and (not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and (((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))) or UnitDelay1_1[t]))) or(not((not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and ((not(((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)) ) and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))) or UnitDelay1_2[t]))) and 1)
+	# Depth: 		11
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem4) #
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := ((not(0) and once_[0, 30]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := ((not(0) and once_[0, 30]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))))
+
+phi_ADI_act3 := alw_[t_init_ADI_artificial + 51*dt,t_final_ADI_artificial](not(((not(0) and once_[0, 30]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))))))
+

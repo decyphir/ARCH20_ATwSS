@@ -1,0 +1,200 @@
+# Automatically generated STL formula
+# Model: ARCH_AT6a_artificial
+# Requirement: ARCH_AT6a_act_artificial
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ARCH_AT6a_artificial = 0, t_final_ARCH_AT6a_artificial = 30, dt = 0.04, artificial_ARCH_AT6_constant = 30, ARCH_AT6a_rpmThreshold = 3000, ARCH_AT6a_rpmStartTime = 0, ARCH_AT6a_rpmEndTime = 30, ARCH_AT6a_speedThreshold = 35, ARCH_AT6a_speedStartTime = 0, ARCH_AT6a_speedEndTime = 4
+
+##########
+# Inport #
+##########
+# ARCH_AT6a_act_artificial_sub1 := artificial_ARCH_AT6[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT6a_act_artificial_sub2 := artificial_ARCH_AT6_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT6a_act_artificial_sub3 := (artificial_ARCH_AT6[t] <= artificial_ARCH_AT6_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ARCH_AT6a_act_artificial_sub4 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT6a_act_artificial_sub5 := ARCH_AT6a_rpmThreshold
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT6a_act_artificial_sub6 := (RPM[t] <= ARCH_AT6a_rpmThreshold)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# ARCH_AT6a_act_artificial_sub7 := ARCH_AT6a_rpmStartTime
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT6a_act_artificial_sub8 := ARCH_AT6a_rpmEndTime
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#############
+# SubSystem #
+#############
+# ARCH_AT6a_act_artificial_sub9 := (alw_[0, 30]((RPM[t] <= ARCH_AT6a_rpmThreshold)))
+# Depth: 		2
+# Modal depth: 	1
+# Start delay: 	30
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ARCH_AT6a_act_artificial_sub10 := not((alw_[0, 30]((RPM[t] <= ARCH_AT6a_rpmThreshold))))
+# Depth: 		3
+# Modal depth: 	1
+# Start delay: 	30
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ARCH_AT6a_act_artificial_sub11 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT6a_act_artificial_sub12 := ARCH_AT6a_speedThreshold
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT6a_act_artificial_sub13 := (speed[t] <= ARCH_AT6a_speedThreshold)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# ARCH_AT6a_act_artificial_sub14 := ARCH_AT6a_speedStartTime
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT6a_act_artificial_sub15 := ARCH_AT6a_speedEndTime
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#############
+# SubSystem #
+#############
+# ARCH_AT6a_act_artificial_sub16 := (alw_[0, 4]((speed[t] <= ARCH_AT6a_speedThreshold)))
+# Depth: 		2
+# Modal depth: 	1
+# Start delay: 	4
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ARCH_AT6a_act_artificial_sub17 := (not((alw_[0, 30]((RPM[t] <= ARCH_AT6a_rpmThreshold))))  or  (alw_[0, 4]((speed[t] <= ARCH_AT6a_speedThreshold))))
+# Depth: 		4
+# Modal depth: 	1
+# Start delay: 	30
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ARCH_AT6a_act_artificial_sub18 := ((artificial_ARCH_AT6[t] <= artificial_ARCH_AT6_constant)  and  (not((alw_[0, 30]((RPM[t] <= ARCH_AT6a_rpmThreshold))))  or  (alw_[0, 4]((speed[t] <= ARCH_AT6a_speedThreshold)))))
+# Depth: 		5
+# Modal depth: 	1
+# Start delay: 	30
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := ((artificial_ARCH_AT6[t] <= artificial_ARCH_AT6_constant)  and  (not((alw_[0, 30]((RPM[t] <= ARCH_AT6a_rpmThreshold))))  or  (alw_[0, 4]((speed[t] <= ARCH_AT6a_speedThreshold)))))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := ((artificial_ARCH_AT6[t] <= artificial_ARCH_AT6_constant)  and  (not((alw_[0, 30]((RPM[t] <= ARCH_AT6a_rpmThreshold))))  or  (alw_[0, 4]((speed[t] <= ARCH_AT6a_speedThreshold)))))
+
+phi_ARCH_AT6a_act_artificial := alw_[t_init_ARCH_AT6a_artificial + 30*dt,t_final_ARCH_AT6a_artificial](not(((artificial_ARCH_AT6[t] <= artificial_ARCH_AT6_constant)  and  (not((alw_[0, 30]((RPM[t] <= ARCH_AT6a_rpmThreshold))))  or  (alw_[0, 4]((speed[t] <= ARCH_AT6a_speedThreshold)))))))
+

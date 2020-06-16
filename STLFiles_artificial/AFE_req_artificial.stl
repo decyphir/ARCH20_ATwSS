@@ -1,0 +1,395 @@
+# Automatically generated STL formula
+# Model: AFE_artificial
+# Requirement: AFE_req_artificial
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_AFE_artificial = 0, t_final_AFE_artificial = 30, dt = 0.04, artificial_AFE_RFC_constant = 30, artificial_AOT_AFE_constant = 30, AFE_speedMin = 50, AFE_subsystem1_gear = 3, AFE_subsystem1_gearSelectionState = 1, AFE_subsystem1_upThreshold1 = 40, AFE_subsystem1_upThreshold2 = 60, fixedStepSize = 0.04, AFE_subsystem1_notAlwaysTimeHorizon = 0.1, AFE_subsystem1_downThreshold = 20
+
+##########
+# Inport #
+##########
+# AFE_req_artificial_sub1 := artificial_AFE_RFC[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AFE_req_artificial_sub2 := artificial_AFE_RFC_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AFE_req_artificial_sub3 := (artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# AFE_req_artificial_sub4 := artificial_AOT_AFE[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AFE_req_artificial_sub5 := artificial_AOT_AFE_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AFE_req_artificial_sub6 := (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AFE_req_artificial_sub7 := ((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# AFE_req_artificial_sub8 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AFE_req_artificial_sub9 := AFE_speedMin
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AFE_req_artificial_sub10 := (speed[t] >= AFE_speedMin)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# AFE_req_artificial_sub11 := 1
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# AFE_req_artificial_sub12 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# AFE_req_artificial_sub13 := gearSelectionState[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# AFE_req_artificial_sub14 := upThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# AFE_req_artificial_sub15 := downThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem1) #
+	############
+	# Constant #
+	############
+	# AFE_req_artificial_sub16 := 1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# AFE_req_artificial_sub17 := AFE_subsystem1_gear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# AFE_req_artificial_sub18 := (gear[t] == AFE_subsystem1_gear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# AFE_req_artificial_sub19 := AFE_subsystem1_gearSelectionState
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# AFE_req_artificial_sub20 := (gearSelectionState[t] == AFE_subsystem1_gearSelectionState)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# AFE_req_artificial_sub21 := AFE_subsystem1_upThreshold1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# AFE_req_artificial_sub22 := (upThreshold[t] >= AFE_subsystem1_upThreshold1)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# AFE_req_artificial_sub23 := AFE_subsystem1_upThreshold2
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# AFE_req_artificial_sub24 := (upThreshold[t] <= AFE_subsystem1_upThreshold2)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# AFE_req_artificial_sub25 := ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# AFE_req_artificial_sub26 := (((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2)))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# AFE_req_artificial_sub27 := not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))
+	# Depth: 		4
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# AFE_req_artificial_sub28 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# AFE_req_artificial_sub29 := AFE_subsystem1_notAlwaysTimeHorizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#############
+	# SubSystem #
+	#############
+	# AFE_req_artificial_sub30 := (not(hist_[0, 2*dt]((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))))
+	# Depth: 		5
+	# Modal depth: 	1
+	# Start delay: 	2
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# AFE_req_artificial_sub31 := AFE_subsystem1_downThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# AFE_req_artificial_sub32 := (downThreshold[t] == AFE_subsystem1_downThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# AFE_req_artificial_sub33 := ((not(hist_[0, 2*dt]((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))))  or  (downThreshold[t] == AFE_subsystem1_downThreshold))
+	# Depth: 		6
+	# Modal depth: 	0
+	# Start delay: 	2
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	##########
+	# Switch #
+	##########
+	# AFE_req_artificial_sub34 := (not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2)))) and 1) or(not(not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))) and ((not(hist_[0, 2*dt]((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))))  or  (downThreshold[t] == AFE_subsystem1_downThreshold)))
+	# Depth: 		8
+	# Modal depth: 	0
+	# Start delay: 	2
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem1) #
+
+##########
+# Switch #
+##########
+# AFE_req_artificial_sub35 := ((speed[t] >= AFE_speedMin) and not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2)))) and 1) or((speed[t] >= AFE_speedMin) and not(not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))) and ((not(hist_[0, 2*dt]((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))))  or  (downThreshold[t] == AFE_subsystem1_downThreshold))) or(not((speed[t] >= AFE_speedMin)) and 1)
+# Depth: 		10
+# Modal depth: 	0
+# Start delay: 	2
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AFE_req_artificial_sub36 := ((speed[t] >= AFE_speedMin) and not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2)))) and (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  1)) or((speed[t] >= AFE_speedMin) and not(not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))) and (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  ((not(hist_[0, 2*dt]((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))))  or  (downThreshold[t] == AFE_subsystem1_downThreshold)))) or(not((speed[t] >= AFE_speedMin)) and (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  1))
+# Depth: 		11
+# Modal depth: 	0
+# Start delay: 	2
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# Prerequisite 1 #
+# sub10[t] ~= 0, sub27[t] ~= 0
+# prereq1 := (speed[t] >= AFE_speedMin) and not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))
+# phi_sub1 := (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  1)
+
+# Prerequisite 2 #
+# sub10[t] ~= 0, sub27[t] == 0
+# prereq2 := (speed[t] >= AFE_speedMin) and not(not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2)))))
+# phi_sub2 := (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  ((not(hist_[0, 2*dt]((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))))  or  (downThreshold[t] == AFE_subsystem1_downThreshold)))
+
+# Prerequisite 3 #
+# sub10[t] == 0
+# prereq3 := not((speed[t] >= AFE_speedMin))
+# phi_sub3 := (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  1)
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := ((speed[t] >= AFE_speedMin) and not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2)))) => (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  1)) and ((speed[t] >= AFE_speedMin) and not(not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))) => (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  ((not(hist_[0, 2*dt]((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))))  or  (downThreshold[t] == AFE_subsystem1_downThreshold)))) and (not((speed[t] >= AFE_speedMin)) => (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  1))
+
+phi_AFE_req_artificial := alw_[t_init_AFE_artificial + 2*dt,t_final_AFE_artificial](((speed[t] >= AFE_speedMin) and not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2)))) and (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  1)) or ((speed[t] >= AFE_speedMin) and not(not((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))) and (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  ((not(hist_[0, 2*dt]((((gear[t] == AFE_subsystem1_gear)  and  (gearSelectionState[t] == AFE_subsystem1_gearSelectionState))  and  ((upThreshold[t] >= AFE_subsystem1_upThreshold1)  and  (upThreshold[t] <= AFE_subsystem1_upThreshold2))))))  or  (downThreshold[t] == AFE_subsystem1_downThreshold)))) or (not((speed[t] >= AFE_speedMin)) and (((artificial_AFE_RFC[t] <= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant))  or  1)))
+

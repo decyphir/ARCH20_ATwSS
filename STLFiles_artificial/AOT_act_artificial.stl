@@ -1,0 +1,273 @@
+# Automatically generated STL formula
+# Model: AOT_artificial
+# Requirement: AOT_act_artificial
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_AOT_artificial = 0, t_final_AOT_artificial = 30, dt = 0.04, artificial_AOT_AFE_constant = 30, artificial_AOT_ASL_constant = 30, AOT_rpmLimit = 2000, AOT_evChangesDuration = 0.1, fixedStepSize = 0.04, AOT_gear = 3, AOT_gearSelectionState = 1
+
+##########
+# Inport #
+##########
+# AOT_act_artificial_sub1 := artificial_AOT_AFE[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_act_artificial_sub2 := artificial_AOT_AFE_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_act_artificial_sub3 := (artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# AOT_act_artificial_sub4 := artificial_AOT_ASL[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_act_artificial_sub5 := artificial_AOT_ASL_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_act_artificial_sub6 := (artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AOT_act_artificial_sub7 := ((artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant)  and  (artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# AOT_act_artificial_sub8 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#######
+# Abs #
+#######
+# AOT_act_artificial_sub9 := abs(RPM[t])
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_act_artificial_sub10 := AOT_rpmLimit
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_act_artificial_sub11 := (abs(RPM[t]) <= AOT_rpmLimit)
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# AOT_act_artificial_sub12 := AOT_evChangesDuration
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_act_artificial_sub13 := fixedStepSize
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# AOT_act_artificial_sub14 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_act_artificial_sub15 := AOT_gear
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_act_artificial_sub16 := (gear[t] == AOT_gear)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# AOT_act_artificial_sub17 := gearSelectionState[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AOT_act_artificial_sub18 := AOT_gearSelectionState
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AOT_act_artificial_sub19 := (gearSelectionState[t] == AOT_gearSelectionState)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AOT_act_artificial_sub20 := ((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+	#############
+	# UnitDelay #
+	#############
+	# AOT_act_artificial_sub21 := ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# AOT_act_artificial_sub22 := (((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+#############
+# SubSystem #
+#############
+# AOT_act_artificial_sub23 := (once_[0, 2*dt](((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState)))) and not((((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))) or (not((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))))) and (((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))))
+# Depth: 		5
+# Modal depth: 	1
+# Start delay: 	3
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AOT_act_artificial_sub24 := ((abs(RPM[t]) <= AOT_rpmLimit)  and  (once_[0, 2*dt](((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState)))) and not((((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))) or (not((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))))) and (((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState))))))))
+# Depth: 		6
+# Modal depth: 	1
+# Start delay: 	3
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AOT_act_artificial_sub25 := (((artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant)  and  (artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant))  and  ((abs(RPM[t]) <= AOT_rpmLimit)  and  (once_[0, 2*dt](((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState)))) and not((((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))) or (not((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))))) and (((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))))))
+# Depth: 		7
+# Modal depth: 	1
+# Start delay: 	3
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := (((artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant)  and  (artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant))  and  ((abs(RPM[t]) <= AOT_rpmLimit)  and  (once_[0, 2*dt](((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState)))) and not((((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))) or (not((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))))) and (((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))))))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := (((artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant)  and  (artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant))  and  ((abs(RPM[t]) <= AOT_rpmLimit)  and  (once_[0, 2*dt](((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState)))) and not((((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))) or (not((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))))) and (((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))))))
+
+phi_AOT_act_artificial := alw_[t_init_AOT_artificial + 3*dt,t_final_AOT_artificial](not((((artificial_AOT_AFE[t] <= artificial_AOT_AFE_constant)  and  (artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant))  and  ((abs(RPM[t]) <= AOT_rpmLimit)  and  (once_[0, 2*dt](((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState)))) and not((((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))) or (not((((gear[t] == AOT_gear)  and  (gearSelectionState[t] == AOT_gearSelectionState))  and not( ((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))))) and (((gear[t-1*dt] == AOT_gear)  and  (gearSelectionState[t-1*dt] == AOT_gearSelectionState))  and not( ((gear[t-2*dt] == AOT_gear)  and  (gearSelectionState[t-2*dt] == AOT_gearSelectionState)))))))))))
+

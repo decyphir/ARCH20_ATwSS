@@ -1,0 +1,884 @@
+# Automatically generated STL formula
+# Model: ADA_artificial
+# Requirement: ADA_req_artificial
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ADA_artificial = 0, t_final_ADA_artificial = 30, dt = 0.04, artificial_ADA_constant = 30, artificial_ASL_ADA_constant = 30, fixedStepSize = 0.04, ADA_subsystem1_timeHorizon = 0.2, ADA_subsystem1_rpmLimit = 2000, ADA_subsystem2_gear2 = 4, ADA_subsystem2_throttleMin = 50, ADA_subsystem2_gear1 = 3, ADA_subsystem2_impellerMin = 400, ADA_subsystem2_impellerMax = 50, ADA_subsystem2_maxValue = 4, ADA_subsystem3_gear = 3, ADA_subsystem3_gearSelectionState = 2, ADA_subsystem3_speedMin = 65, ADA_subsystem3_speedMax = 70
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub1 := artificial_ADA[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ADA_req_artificial_sub2 := artificial_ADA_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ADA_req_artificial_sub3 := (artificial_ADA[t] <= artificial_ADA_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub4 := artificial_ASL_ADA[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ADA_req_artificial_sub5 := artificial_ASL_ADA_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ADA_req_artificial_sub6 := (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ADA_req_artificial_sub7 := ((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub8 := downThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub9 := upThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub10 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub11 := throttle[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem1) #
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub12 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub13 := ADA_subsystem1_timeHorizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub14 := (throttle[t] <= downThreshold[t])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub15 := (upThreshold[t] >= throttle[t])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub16 := ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub17 := not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ADA_req_artificial_sub18 := (not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))
+	# Depth: 		5
+	# Modal depth: 	1
+	# Start delay: 	5
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub19 := ((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))
+	# Depth: 		6
+	# Modal depth: 	0
+	# Start delay: 	5
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#######
+	# Abs #
+	#######
+	# ADA_req_artificial_sub20 := abs(RPM[t])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub21 := ADA_subsystem1_rpmLimit
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub22 := (abs(RPM[t]) <= ADA_subsystem1_rpmLimit)
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub23 := (((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))
+	# Depth: 		7
+	# Modal depth: 	0
+	# Start delay: 	5
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem1) #
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub24 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub25 := impellerTorque[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub26 := outputTorque[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem2) #
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub27 := ADA_subsystem2_gear2
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub28 := (gear[t] < ADA_subsystem2_gear2)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub29 := ADA_subsystem2_throttleMin
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub30 := (throttle[t] < ADA_subsystem2_throttleMin)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub31 := ADA_subsystem2_gear1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub32 := (gear[t] < ADA_subsystem2_gear1)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	##########
+	# Switch #
+	##########
+	# ADA_req_artificial_sub33 := ((throttle[t] < ADA_subsystem2_throttleMin) and (gear[t] < ADA_subsystem2_gear2)) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (gear[t] < ADA_subsystem2_gear1))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+		#############
+		# UnitDelay #
+		#############
+		# ADA_req_artificial_sub34 := ((throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (gear[t-1*dt] < ADA_subsystem2_gear2)) or(not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (gear[t-1*dt] < ADA_subsystem2_gear1))
+		# Depth: 		3
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ADA_req_artificial_sub35 := ((throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and ((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))) or((throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and ((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and ((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and ((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1))))
+		# Depth: 		4
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub36 := ((throttle[t] < ADA_subsystem2_throttleMin) and not((gear[t] < ADA_subsystem2_gear2))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((gear[t] < ADA_subsystem2_gear1)))
+	# Depth: 		4
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub37 := ((throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and (((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear2)))) or((throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and (((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear2)))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear1)))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear1))))
+	# Depth: 		5
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub38 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub39 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub40 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#############
+	# UnitDelay #
+	#############
+	# ADA_req_artificial_sub41 := outputTorque[t-1*dt]
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Signum #
+	##########
+	# ADA_req_artificial_sub42 := sign(outputTorque[t-1*dt])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub43 := (0 == sign(outputTorque[t-1*dt]))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	##########
+	# Signum #
+	##########
+	# ADA_req_artificial_sub44 := sign(outputTorque[t])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub45 := not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t]))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub46 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub47 := (sign(outputTorque[t]) == 0)
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub48 := (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub49 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#######
+	# Sum #
+	#######
+	# ADA_req_artificial_sub50 := (impellerTorque[t] + throttle[t])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub51 := ADA_subsystem2_impellerMin
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub52 := ((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# UnitDelay #
+	#############
+	# ADA_req_artificial_sub53 := impellerTorque[t-1*dt]
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#######
+	# Sum #
+	#######
+	# ADA_req_artificial_sub54 := (impellerTorque[t] + impellerTorque[t-1*dt])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#######
+	# Abs #
+	#######
+	# ADA_req_artificial_sub55 := abs((impellerTorque[t] + impellerTorque[t-1*dt]))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub56 := ADA_subsystem2_impellerMax
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub57 := (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub58 := (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))
+	# Depth: 		4
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub59 := 1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# ADA_req_artificial_sub60 := ((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and 0) or(not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and 1)
+	# Depth: 		6
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# ADA_req_artificial_sub61 := ((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and 0) or(not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and 0) or(not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and 1)
+	# Depth: 		8
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub62 := ADA_subsystem2_maxValue
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub63 := ((throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and true) or((throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and true) or((throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear2))))) or((throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and true) or((throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and true) or((throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear2))))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and true) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and true) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear1))))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and true) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and true) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear1)))))
+	# Depth: 		7
+	# Modal depth: 	1
+	# Start delay: 	5
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem2) #
+
+#########
+# Logic #
+#########
+# ADA_req_artificial_sub64 := ((throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear2)))))) or((throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear2)))))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear1)))))) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or(not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear1))))))
+# Depth: 		8
+# Modal depth: 	1
+# Start delay: 	5
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub65 := gearSelectionState[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADA_req_artificial_sub66 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem3) #
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub67 := ADA_subsystem3_gear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub68 := (gear[t] == ADA_subsystem3_gear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub69 := ADA_subsystem3_gearSelectionState
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub70 := not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub71 := ADA_subsystem3_speedMin
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub72 := (speed[t] >= ADA_subsystem3_speedMin)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADA_req_artificial_sub73 := ADA_subsystem3_speedMax
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADA_req_artificial_sub74 := (speed[t] <= ADA_subsystem3_speedMax)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub75 := ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADA_req_artificial_sub76 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax)))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem3) #
+
+############
+# Constant #
+############
+# ADA_req_artificial_sub77 := 1
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Switch #
+##########
+# ADA_req_artificial_sub78 := ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear2)))))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear2)))))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear1)))))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true)) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear1)))))) or(not((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax)))) and 1)
+# Depth: 		10
+# Modal depth: 	1
+# Start delay: 	5
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ADA_req_artificial_sub79 := ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear2))))))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear2))))))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear1))))))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear1))))))) or(not((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax)))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  1))
+# Depth: 		11
+# Modal depth: 	1
+# Start delay: 	5
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# Prerequisite 1 #
+# sub30[t-1*dt] ~= 0, sub30[t] ~= 0, sub48[t] ~= 0, sub76[t] ~= 0
+# prereq1 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))
+# phi_sub1 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))
+
+# Prerequisite 2 #
+# sub30[t-1*dt] ~= 0, sub30[t] ~= 0, sub48[t] == 0, sub58[t] ~= 0, sub76[t] ~= 0
+# prereq2 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))
+# phi_sub2 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))
+
+# Prerequisite 3 #
+# sub30[t-1*dt] ~= 0, sub30[t] ~= 0, sub48[t] == 0, sub58[t] == 0, sub76[t] ~= 0
+# prereq3 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)))
+# phi_sub3 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear2))))))
+
+# Prerequisite 4 #
+# sub30[t-1*dt] == 0, sub30[t] ~= 0, sub48[t] ~= 0, sub76[t] ~= 0
+# prereq4 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))
+# phi_sub4 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))
+
+# Prerequisite 5 #
+# sub30[t-1*dt] == 0, sub30[t] ~= 0, sub48[t] == 0, sub58[t] ~= 0, sub76[t] ~= 0
+# prereq5 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))
+# phi_sub5 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))
+
+# Prerequisite 6 #
+# sub30[t-1*dt] == 0, sub30[t] ~= 0, sub48[t] == 0, sub58[t] == 0, sub76[t] ~= 0
+# prereq6 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)))
+# phi_sub6 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear2))))))
+
+# Prerequisite 7 #
+# sub30[t-1*dt] ~= 0, sub30[t] == 0, sub48[t] ~= 0, sub76[t] ~= 0
+# prereq7 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))
+# phi_sub7 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))
+
+# Prerequisite 8 #
+# sub30[t-1*dt] ~= 0, sub30[t] == 0, sub48[t] == 0, sub58[t] ~= 0, sub76[t] ~= 0
+# prereq8 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))
+# phi_sub8 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))
+
+# Prerequisite 9 #
+# sub30[t-1*dt] ~= 0, sub30[t] == 0, sub48[t] == 0, sub58[t] == 0, sub76[t] ~= 0
+# prereq9 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)))
+# phi_sub9 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear1))))))
+
+# Prerequisite 10 #
+# sub30[t-1*dt] == 0, sub30[t] == 0, sub48[t] ~= 0, sub76[t] ~= 0
+# prereq10 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))
+# phi_sub10 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))
+
+# Prerequisite 11 #
+# sub30[t-1*dt] == 0, sub30[t] == 0, sub48[t] == 0, sub58[t] ~= 0, sub76[t] ~= 0
+# prereq11 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))
+# phi_sub11 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))
+
+# Prerequisite 12 #
+# sub30[t-1*dt] == 0, sub30[t] == 0, sub48[t] == 0, sub58[t] == 0, sub76[t] ~= 0
+# prereq12 := (((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)))
+# phi_sub12 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear1))))))
+
+# Prerequisite 13 #
+# sub76[t] == 0
+# prereq13 := not((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))))
+# phi_sub13 := (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  1)
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear2))))))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear2))))))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear1))))))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) and ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear1))))))) and (not((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax)))) => (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  1))
+
+phi_ADA_req_artificial := alw_[t_init_ADA_artificial + 5*dt,t_final_ADA_artificial](((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear2))))))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and (throttle[t] < ADA_subsystem2_throttleMin) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and (throttle[t] < ADA_subsystem2_throttleMin) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear2)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear2))))))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (throttle[t-1*dt] < ADA_subsystem2_throttleMin) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear2)))  or  not((gear[t] < ADA_subsystem2_gear1))))))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and (((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and (((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax)) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  true))) or ((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax))) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((throttle[t-1*dt] < ADA_subsystem2_throttleMin)) and not((throttle[t] < ADA_subsystem2_throttleMin)) and not((((0 == sign(outputTorque[t-1*dt]))  or  not(sign(outputTorque[t-1*dt]) == sign(outputTorque[t])))  or  (sign(outputTorque[t]) == 0))) and not((((impellerTorque[t] + throttle[t]) >= ADA_subsystem2_impellerMin)  or  (abs((impellerTorque[t] + impellerTorque[t-1*dt])) <= ADA_subsystem2_impellerMax))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  ((((not(hist_[0, 5*dt](not(((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t]))))))  or  ((throttle[t] <= downThreshold[t])  or  (upThreshold[t] >= throttle[t])))  or  (abs(RPM[t]) <= ADA_subsystem1_rpmLimit))  and  once_[0,4*dt]((((gear[t] < ADA_subsystem2_gear1)  and not( (gear[t-1*dt] < ADA_subsystem2_gear1)))  or  not((gear[t] < ADA_subsystem2_gear1))))))) or (not((((gear[t] == ADA_subsystem3_gear)  and  not(gearSelectionState[t] == ADA_subsystem3_gearSelectionState))  and  ((speed[t] >= ADA_subsystem3_speedMin)  and  (speed[t] <= ADA_subsystem3_speedMax)))) and (((artificial_ADA[t] <= artificial_ADA_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  1)))
+

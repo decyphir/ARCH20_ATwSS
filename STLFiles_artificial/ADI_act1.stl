@@ -1,0 +1,1051 @@
+# Automatically generated STL formula
+# Model: ADI_artificial
+# Requirement: ADI_act1
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ADI_artificial = 0, t_final_ADI_artificial = 30, dt = 0.04, ADI_subsystem3_downThreshold = 20, ADI_subsystem3_upThreshold = 50, ADI_subsystem3_gear = 1, ADI_subsystem3_gearSelectionState = 2, ADI_subsystem3_RPM = 500, ADI_subsystem3_impellerTorque = 200, fixedStepSize = 0.04, ADI_subsystem4_notAlways1Horizon = 2.8, ADI_subsystem4_gear = 4, ADI_subsystem4_downThreshold = 80, ADI_subsystem4_RPM = 4000, ADI_subsystem4_throttle = 70, ADI_subsystem4_gearSelectionState = 3, ADI_subsystem4_upThreshold = 100, ADI_subsystem4_notAlwaysHorizon = 2, ADI_outputTorqueBound = 200, ADI_subsystem2_gear1 = 3, ADI_subsystem2_notAlwaysHorizon = 1.5, ADI_subsystem2_speedMin = 40, ADI_subsystem2_evChangesDuration = 0.5, ADI_subsystem2_gear2 = 4, ADI_notAlways1Horizon = 0.2
+
+##########
+# Inport #
+##########
+# ADI_act1_sub1 := downThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act1_sub2 := upThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act1_sub3 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act1_sub4 := gearSelectionState[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act1_sub5 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ADI_act1_sub6 := impellerTorque[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem3) #
+	############
+	# Constant #
+	############
+	# ADI_act1_sub7 := ADI_subsystem3_downThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub8 := (downThreshold[t] == ADI_subsystem3_downThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub9 := ADI_subsystem3_upThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub10 := (upThreshold[t] <= ADI_subsystem3_upThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub11 := ((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub12 := ADI_subsystem3_gear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub13 := (gear[t] == ADI_subsystem3_gear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub14 := ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub15 := ADI_subsystem3_gearSelectionState
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub16 := (gearSelectionState[t] == ADI_subsystem3_gearSelectionState)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub17 := ((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub18 := ADI_subsystem3_RPM
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub19 := (RPM[t] >= ADI_subsystem3_RPM)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub20 := ADI_subsystem3_impellerTorque
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub21 := (impellerTorque[t] > ADI_subsystem3_impellerTorque)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub22 := ((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque))
+	# Depth: 		4
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem3) #
+
+##########
+# Inport #
+##########
+# ADI_act1_sub23 := throttle[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem4) #
+	############
+	# Constant #
+	############
+	# ADI_act1_sub24 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub25 := ADI_subsystem4_notAlways1Horizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub26 := ADI_subsystem4_gear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub27 := (gear[t] == ADI_subsystem4_gear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub28 := ADI_subsystem4_downThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub29 := (downThreshold[t] >= ADI_subsystem4_downThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub30 := ((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub31 := ADI_subsystem4_RPM
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub32 := (RPM[t] > ADI_subsystem4_RPM)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub33 := ADI_subsystem4_throttle
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub34 := (throttle[t] > ADI_subsystem4_throttle)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub35 := ADI_subsystem4_gearSelectionState
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub36 := not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub37 := ADI_subsystem4_upThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub38 := (upThreshold[t] > ADI_subsystem4_upThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub39 := (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub40 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub41 := ADI_subsystem4_notAlwaysHorizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub42 := not((upThreshold[t] > ADI_subsystem4_upThreshold))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub43 := (not((upThreshold[t] > ADI_subsystem4_upThreshold))  and  ((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# UnitDelay #
+	#############
+	# ADI_act1_sub44 := (not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act1_sub45 := (not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))
+	# Depth: 		5
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub46 := not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))
+	# Depth: 		6
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub47 := ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))
+	# Depth: 		7
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub48 := (((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))))
+	# Depth: 		8
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act1_sub49 := (not(hist_[0, 70*dt]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))))))
+	# Depth: 		10
+	# Modal depth: 	2
+	# Start delay: 	121
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+		#############
+		# UnitDelay #
+		#############
+		# ADI_act1_sub50 := ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))
+		# Depth: 		2
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ADI_act1_sub51 := (((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))
+		# Depth: 		3
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub52 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act1_sub53 := (not(0) and once_[0, 30]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))
+	# Depth: 		5
+	# Modal depth: 	1
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub54 := ((not(0) and once_[0, 30]((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))  and  ((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))))
+	# Depth: 		8
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+		#############
+		# UnitDelay #
+		#############
+		# ADI_act1_sub55 := ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))
+		# Depth: 		2
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ADI_act1_sub56 := (((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))
+		# Depth: 		3
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act1_sub57 := (not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and (((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))) or UnitDelay1_1[t]))
+	# Depth: 		9
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Decrease) #
+		#############
+		# UnitDelay #
+		#############
+		# ADI_act1_sub58 := ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))
+		# Depth: 		2
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ADI_act1_sub59 := (not(((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)) ) and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))
+		# Depth: 		3
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Decrease) #
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act1_sub60 := (not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and ((not(((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)) ) and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))) or UnitDelay1_2[t]))
+	# Depth: 		5
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub61 := 1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# ADI_act1_sub62 := ((not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and ((not(((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)) ) and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))) or UnitDelay1_2[t])) and (not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and (((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold)))))))) or UnitDelay1_1[t]))) or(not((not((((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold))  and not( ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))) and ((not(((gear[t] == ADI_subsystem4_gear)  or  (downThreshold[t] >= ADI_subsystem4_downThreshold)) ) and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))) or UnitDelay1_2[t]))) and 1)
+	# Depth: 		11
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem4) #
+
+#############
+# SubSystem #
+#############
+# ADI_act1_sub63 := (not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))
+# Depth: 		9
+# Modal depth: 	1
+# Start delay: 	51
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ADI_act1_sub64 := outputTorque[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#######
+# Abs #
+#######
+# ADI_act1_sub65 := abs(outputTorque[t])
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ADI_act1_sub66 := ADI_outputTorqueBound
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ADI_act1_sub67 := (abs(outputTorque[t]) <= ADI_outputTorqueBound)
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ADI_act1_sub68 := ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))
+# Depth: 		10
+# Modal depth: 	0
+# Start delay: 	51
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ADI_act1_sub69 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem2) #
+	############
+	# Constant #
+	############
+	# ADI_act1_sub70 := ADI_subsystem2_gear1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub71 := (gear[t] == ADI_subsystem2_gear1)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub72 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub73 := ADI_subsystem2_notAlwaysHorizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#######
+	# Abs #
+	#######
+	# ADI_act1_sub74 := abs(speed[t])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub75 := ADI_subsystem2_speedMin
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub76 := (abs(speed[t]) > ADI_subsystem2_speedMin)
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub77 := ((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))
+	# Depth: 		11
+	# Modal depth: 	0
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act1_sub78 := (not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))))))
+	# Depth: 		13
+	# Modal depth: 	1
+	# Start delay: 	88
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub79 := not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))
+	# Depth: 		14
+	# Modal depth: 	1
+	# Start delay: 	88
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub80 := not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))))))))
+	# Depth: 		15
+	# Modal depth: 	1
+	# Start delay: 	88
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub81 := ((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))
+	# Depth: 		16
+	# Modal depth: 	1
+	# Start delay: 	88
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub82 := ADI_subsystem2_evChangesDuration
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub83 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+# Start of SubSystem (Detect Increase) #
+		#############
+		# UnitDelay #
+		#############
+		# ADI_act1_sub84 := not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))
+		# Depth: 		14
+		# Modal depth: 	1
+		# Start delay: 	89
+		# End delay: 	0
+		# Type: 		phi_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ADI_act1_sub85 := (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))
+		# Depth: 		15
+		# Modal depth: 	1
+		# Start delay: 	89
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+	#############
+	# SubSystem #
+	#############
+	# ADI_act1_sub86 := (once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))
+	# Depth: 		17
+	# Modal depth: 	2
+	# Start delay: 	101
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ADI_act1_sub87 := ADI_subsystem2_gear2
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ADI_act1_sub88 := (gear[t] == ADI_subsystem2_gear2)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub89 := ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))
+	# Depth: 		18
+	# Modal depth: 	0
+	# Start delay: 	101
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub90 := (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2)))
+	# Depth: 		19
+	# Modal depth: 	0
+	# Start delay: 	101
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub91 := (((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))
+	# Depth: 		20
+	# Modal depth: 	0
+	# Start delay: 	101
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub92 := ((((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))  or  (gear[t] == ADI_subsystem2_gear2))
+	# Depth: 		21
+	# Modal depth: 	0
+	# Start delay: 	101
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ADI_act1_sub93 := (((((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))  or  (gear[t] == ADI_subsystem2_gear2))  and  (abs(speed[t]) > ADI_subsystem2_speedMin))
+	# Depth: 		22
+	# Modal depth: 	0
+	# Start delay: 	101
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem2) #
+
+#########
+# Logic #
+#########
+# ADI_act1_sub94 := (((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))  and  (((((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))  or  (gear[t] == ADI_subsystem2_gear2))  and  (abs(speed[t]) > ADI_subsystem2_speedMin)))
+# Depth: 		23
+# Modal depth: 	0
+# Start delay: 	101
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# ADI_act1_sub95 := 0
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#############
+# SubSystem #
+#############
+# ADI_act1_sub96 := (not(0) and once_[0, 30]((((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))  and  (((((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))  or  (gear[t] == ADI_subsystem2_gear2))  and  (abs(speed[t]) > ADI_subsystem2_speedMin)))))
+# Depth: 		25
+# Modal depth: 	1
+# Start delay: 	101
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# ADI_act1_sub97 := fixedStepSize
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ADI_act1_sub98 := ADI_notAlways1Horizon
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#############
+# SubSystem #
+#############
+# ADI_act1_sub99 := (not(hist_[0, 5*dt](((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))
+# Depth: 		12
+# Modal depth: 	1
+# Start delay: 	56
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ADI_act1_sub100 := not((not(hist_[0, 5*dt](((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))))))
+# Depth: 		13
+# Modal depth: 	1
+# Start delay: 	56
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ADI_act1_sub101 := ((not(0) and once_[0, 30]((((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))  and  (((((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))  or  (gear[t] == ADI_subsystem2_gear2))  and  (abs(speed[t]) > ADI_subsystem2_speedMin)))))  and  not((not(hist_[0, 5*dt](((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))
+# Depth: 		26
+# Modal depth: 	1
+# Start delay: 	101
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := ((not(0) and once_[0, 30]((((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))  and  (((((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))  or  (gear[t] == ADI_subsystem2_gear2))  and  (abs(speed[t]) > ADI_subsystem2_speedMin)))))  and  not((not(hist_[0, 5*dt](((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := ((not(0) and once_[0, 30]((((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))  and  (((((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))  or  (gear[t] == ADI_subsystem2_gear2))  and  (abs(speed[t]) > ADI_subsystem2_speedMin)))))  and  not((not(hist_[0, 5*dt](((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))
+
+phi_ADI_act1 := alw_[t_init_ADI_artificial + 101*dt,t_final_ADI_artificial](not(((not(0) and once_[0, 30]((((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound))  and  (((((gear[t] == ADI_subsystem2_gear1)  and  not(not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))  or  (not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and  ((once_[0, 12*dt](((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound))))))))) and not((not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))) or (not((not((not(hist_[0, 37*dt](((abs(speed[t]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))))) and (not((not(hist_[0, 37*dt](((abs(speed[t-1*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-1*dt] > ADI_subsystem4_RPM)  or  (throttle[t-1*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-1*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-1*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-2*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-2*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-2*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-1*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-1*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-1*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-1*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-1*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-1*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-1*dt]))  and  (abs(outputTorque[t-1*dt]) <= ADI_outputTorqueBound)))))))  and not( not((not(hist_[0, 37*dt](((abs(speed[t-2*dt]) > ADI_subsystem2_speedMin)  and  ((not(((((RPM[t-2*dt] > ADI_subsystem4_RPM)  or  (throttle[t-2*dt] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t-2*dt] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t-2*dt] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-3*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-3*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-3*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t-2*dt] == ADI_subsystem3_downThreshold)  and  (upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t-2*dt] <= ADI_subsystem3_upThreshold)  and  (gear[t-2*dt] == ADI_subsystem3_gear)))  or  (gearSelectionState[t-2*dt] == ADI_subsystem3_gearSelectionState))  and  (RPM[t-2*dt] >= ADI_subsystem3_RPM))  and  (impellerTorque[t-2*dt] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t-2*dt]))  and  (abs(outputTorque[t-2*dt]) <= ADI_outputTorqueBound))))))))))))  or  (gear[t] == ADI_subsystem2_gear2))))  or  (gear[t] == ADI_subsystem2_gear2))  and  (abs(speed[t]) > ADI_subsystem2_speedMin)))))  and  not((not(hist_[0, 5*dt](((not(((((RPM[t] > ADI_subsystem4_RPM)  or  (throttle[t] > ADI_subsystem4_throttle))  or  (not(gearSelectionState[t] == ADI_subsystem4_gearSelectionState)  and  (upThreshold[t] > ADI_subsystem4_upThreshold)))  or  not((not(hist_[0, 50*dt]((not((upThreshold[t-1*dt] > ADI_subsystem4_upThreshold))  and  ((gear[t-1*dt] == ADI_subsystem4_gear)  or  (downThreshold[t-1*dt] >= ADI_subsystem4_downThreshold))))))))) and (((((((downThreshold[t] == ADI_subsystem3_downThreshold)  and  (upThreshold[t] <= ADI_subsystem3_upThreshold))  or  ((upThreshold[t] <= ADI_subsystem3_upThreshold)  and  (gear[t] == ADI_subsystem3_gear)))  or  (gearSelectionState[t] == ADI_subsystem3_gearSelectionState))  and  (RPM[t] >= ADI_subsystem3_RPM))  and  (impellerTorque[t] > ADI_subsystem3_impellerTorque)) or UnitDelay1_3[t]))  and  (abs(outputTorque[t]) <= ADI_outputTorqueBound)))))))))
+

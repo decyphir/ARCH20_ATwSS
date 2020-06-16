@@ -1,0 +1,90 @@
+# Automatically generated STL formula
+# Model: ARCH_AT1_artificial
+# Requirement: ARCH_AT1_act_artificial
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ARCH_AT1_artificial = 0, t_final_ARCH_AT1_artificial = 30, dt = 0.04, artificial_ARCH_AT1_constant = 30, ARCH_AT1_speedLimitAct = 100
+
+##########
+# Inport #
+##########
+# ARCH_AT1_act_artificial_sub1 := artificial_ARCH_AT1[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT1_act_artificial_sub2 := artificial_ARCH_AT1_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT1_act_artificial_sub3 := (artificial_ARCH_AT1[t] <= artificial_ARCH_AT1_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ARCH_AT1_act_artificial_sub4 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ARCH_AT1_act_artificial_sub5 := ARCH_AT1_speedLimitAct
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ARCH_AT1_act_artificial_sub6 := (speed[t] > ARCH_AT1_speedLimitAct)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ARCH_AT1_act_artificial_sub7 := ((artificial_ARCH_AT1[t] <= artificial_ARCH_AT1_constant)  and  (speed[t] > ARCH_AT1_speedLimitAct))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := ((artificial_ARCH_AT1[t] <= artificial_ARCH_AT1_constant)  and  (speed[t] > ARCH_AT1_speedLimitAct))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := ((artificial_ARCH_AT1[t] <= artificial_ARCH_AT1_constant)  and  (speed[t] > ARCH_AT1_speedLimitAct))
+
+phi_ARCH_AT1_act_artificial := alw_[t_init_ARCH_AT1_artificial,t_final_ARCH_AT1_artificial](not(((artificial_ARCH_AT1[t] <= artificial_ARCH_AT1_constant)  and  (speed[t] > ARCH_AT1_speedLimitAct))))
+

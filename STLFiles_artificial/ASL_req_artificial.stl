@@ -1,0 +1,742 @@
+# Automatically generated STL formula
+# Model: ASL_artificial
+# Requirement: ASL_req_artificial
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_ASL_artificial = 0, t_final_ASL_artificial = 30, dt = 0.04, artificial_AOT_ASL_constant = 30, artificial_ASL_ADA_constant = 30, fixedStepSize = 0.04, ASL_subsystem2_notAlwaysHorizon = 0.08, ASL_subsystem2_TorqueValue = 0, ASL_subsystem2_upThreshold1 = 0, ASL_subsystem2_upThreshold2 = 10, ASL_subsystem2_gear = 2, ASL_subsystem2_gear2 = 3, ASL_subsystem1_gear = 2, ASL_subsystem1_speedThreshold = 80, ASL_subsystem1_notAlwaysHorizon = 0.2
+
+##########
+# Inport #
+##########
+# ASL_req_artificial_sub1 := artificial_AOT_ASL[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ASL_req_artificial_sub2 := artificial_AOT_ASL_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ASL_req_artificial_sub3 := (artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ASL_req_artificial_sub4 := artificial_ASL_ADA[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# ASL_req_artificial_sub5 := artificial_ASL_ADA_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# ASL_req_artificial_sub6 := (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ASL_req_artificial_sub7 := ((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# ASL_req_artificial_sub8 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ASL_req_artificial_sub9 := impellerTorque[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ASL_req_artificial_sub10 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ASL_req_artificial_sub11 := outputTorque[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# ASL_req_artificial_sub12 := upThreshold[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem2) #
+	#########
+	# Delay #
+	#########
+	# ASL_req_artificial_sub13 := impellerTorque[t-1*dt]
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	49
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub14 := (impellerTorque[t] <= impellerTorque[t-1*dt])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	49
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub15 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub16 := ASL_subsystem2_notAlwaysHorizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub17 := not((impellerTorque[t] <= impellerTorque[t-1*dt]))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	49
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+		#############
+		# UnitDelay #
+		#############
+		# ASL_req_artificial_sub18 := RPM[t-1*dt]
+		# Depth: 		0
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		signal_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ASL_req_artificial_sub19 := (RPM[t] > RPM[t-1*dt])
+		# Depth: 		1
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub20 := not((RPM[t] > RPM[t-1*dt]))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Detect Increase) #
+		#############
+		# UnitDelay #
+		#############
+		# ASL_req_artificial_sub21 := outputTorque[t-1*dt]
+		# Depth: 		0
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		signal_exp
+
+		######################
+		# RelationalOperator #
+		######################
+		# ASL_req_artificial_sub22 := (outputTorque[t] > outputTorque[t-1*dt])
+		# Depth: 		1
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		phi_exp
+
+# End of SubSystem (Detect Increase) #
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub23 := (not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# Start of SubSystem (Discrete Derivative) #
+		#############
+		# UnitDelay #
+		#############
+		# ASL_req_artificial_sub24 := outputTorque[t-1*dt]
+		# Depth: 		0
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		signal_exp
+
+		#######
+		# Sum #
+		#######
+		# ASL_req_artificial_sub25 := (outputTorque[t] - outputTorque[t-1*dt])
+		# Depth: 		1
+		# Modal depth: 	0
+		# Start delay: 	1
+		# End delay: 	0
+		# Type: 		signal_exp
+
+# End of SubSystem (Discrete Derivative) #
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub26 := ASL_subsystem2_TorqueValue
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub27 := ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub28 := ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue))
+	# Depth: 		4
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub29 := (not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))
+	# Depth: 		5
+	# Modal depth: 	0
+	# Start delay: 	49
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ASL_req_artificial_sub30 := (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue))))))
+	# Depth: 		7
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub31 := ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))
+	# Depth: 		8
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub32 := ASL_subsystem2_upThreshold1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub33 := (upThreshold[t] == ASL_subsystem2_upThreshold1)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub34 := ASL_subsystem2_upThreshold2
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub35 := (upThreshold[t] == ASL_subsystem2_upThreshold2)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub36 := ((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub37 := not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub38 := ASL_subsystem2_gear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub39 := (gear[t] == ASL_subsystem2_gear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub40 := ASL_subsystem2_gear2
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub41 := (gear[t] == ASL_subsystem2_gear2)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub42 := ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub43 := ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))
+	# Depth: 		5
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub44 := 1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# ASL_req_artificial_sub45 := (((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) and ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))) or(not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) and 1)
+	# Depth: 		10
+	# Modal depth: 	1
+	# Start delay: 	51
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem2) #
+
+##########
+# Inport #
+##########
+# ASL_req_artificial_sub46 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (subsystem1) #
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub47 := ASL_subsystem1_gear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub48 := not(gear[t] == ASL_subsystem1_gear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# UnitDelay #
+	#############
+	# ASL_req_artificial_sub49 := gear[t-1*dt]
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub50 := (ASL_subsystem1_gear == gear[t-1*dt])
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub51 := (not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub52 := ASL_subsystem1_speedThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub53 := (speed[t] < ASL_subsystem1_speedThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub54 := ((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold))
+	# Depth: 		3
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub55 := (speed[t] >= ASL_subsystem1_speedThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ASL_req_artificial_sub56 := (not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))
+	# Depth: 		5
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub57 := not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))
+	# Depth: 		6
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub58 := (not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))
+	# Depth: 		7
+	# Modal depth: 	0
+	# Start delay: 	1
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub59 := ASL_subsystem1_speedThreshold
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# ASL_req_artificial_sub60 := (speed[t] <= ASL_subsystem1_speedThreshold)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub61 := fixedStepSize
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub62 := ASL_subsystem1_notAlwaysHorizon
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub63 := not((speed[t] <= ASL_subsystem1_speedThreshold))
+	# Depth: 		2
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#############
+	# SubSystem #
+	#############
+	# ASL_req_artificial_sub64 := (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold)))))
+	# Depth: 		4
+	# Modal depth: 	1
+	# Start delay: 	5
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# ASL_req_artificial_sub65 := ((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))
+	# Depth: 		5
+	# Modal depth: 	1
+	# Start delay: 	5
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# ASL_req_artificial_sub66 := 1
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	##########
+	# Switch #
+	##########
+	# ASL_req_artificial_sub67 := ((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and ((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))) or(not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and 1)
+	# Depth: 		9
+	# Modal depth: 	1
+	# Start delay: 	5
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (subsystem1) #
+
+#########
+# Logic #
+#########
+# ASL_req_artificial_sub68 := ((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) and (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue))))))))) or((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) and (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  1)) or(not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) and (1  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue))))))))) or(not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) and (1  and  1))
+# Depth: 		11
+# Modal depth: 	1
+# Start delay: 	51
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ASL_req_artificial_sub69 := ((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) and (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))))) or((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) and (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  1))) or(not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) and (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (1  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))))) or(not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) and (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (1  and  1)))
+# Depth: 		12
+# Modal depth: 	1
+# Start delay: 	51
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# Prerequisite 1 #
+# sub43[t] ~= 0, sub58[t] ~= 0
+# prereq1 := (not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))
+# phi_sub1 := (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))))
+
+# Prerequisite 2 #
+# sub43[t] == 0, sub58[t] ~= 0
+# prereq2 := (not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))))
+# phi_sub2 := (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  1))
+
+# Prerequisite 3 #
+# sub43[t] ~= 0, sub58[t] == 0
+# prereq3 := not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))
+# phi_sub3 := (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (1  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))))
+
+# Prerequisite 4 #
+# sub43[t] == 0, sub58[t] == 0
+# prereq4 := not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))))
+# phi_sub4 := (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (1  and  1))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := ((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) => (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))))) and ((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) => (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  1))) and (not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) => (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (1  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))))) and (not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) => (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (1  and  1)))
+
+phi_ASL_req_artificial := alw_[t_init_ASL_artificial + 51*dt,t_final_ASL_artificial](((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) and (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))))) or ((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t])))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) and (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (((speed[t] <= ASL_subsystem1_speedThreshold)  or  (not(hist_[0, 5*dt](not((speed[t] <= ASL_subsystem1_speedThreshold))))))  and  1))) or (not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and ((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2))) and (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (1  and  ((impellerTorque[t] <= impellerTorque[t-1*dt])  or  (not(hist_[0, 2*dt]((not((impellerTorque[t] <= impellerTorque[t-1*dt]))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))))))))) or (not((not(gear[t] == ASL_subsystem1_gear)  and  not((not((speed[t] >= ASL_subsystem1_speedThreshold)) and (((not(gear[t] == ASL_subsystem1_gear)  and  (ASL_subsystem1_gear == gear[t-1*dt]))  and  (speed[t] < ASL_subsystem1_speedThreshold)) or UnitDelay1_23[t]))))) and not(((not(((upThreshold[t] == ASL_subsystem2_upThreshold1)  or  (upThreshold[t] == ASL_subsystem2_upThreshold2)))  and  ((not((RPM[t] > RPM[t-1*dt]))  and  (outputTorque[t] > outputTorque[t-1*dt]))  and  ((outputTorque[t] - outputTorque[t-1*dt]) >= ASL_subsystem2_TorqueValue)))  and  ((gear[t] == ASL_subsystem2_gear)  or  (gear[t] == ASL_subsystem2_gear2)))) and (((artificial_AOT_ASL[t] <= artificial_AOT_ASL_constant)  or  (artificial_ASL_ADA[t] <= artificial_ASL_ADA_constant))  or  (1  and  1))))
+

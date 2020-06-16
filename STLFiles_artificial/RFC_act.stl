@@ -1,0 +1,303 @@
+# Automatically generated STL formula
+# Model: RFC_artificial
+# Requirement: RFC_act
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_RFC_artificial = 0, t_final_RFC_artificial = 30, dt = 0.04, fixedStepSize = 0.04, RFC_notAlwaysTime = 0.04, RFC_subsystem1_gearState = 2, RFC_preconditions_speedLimit = 50, RFC_preconditions_rpmLimit = 2500, RFC_preconditions_torqueLimit = 5, RFC_preconditions_gear = 1, RFC_preconditions_throttleLimit = 80
+
+############
+# Constant #
+############
+# RFC_act_sub1 := fixedStepSize
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# RFC_act_sub2 := RFC_notAlwaysTime
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# RFC_act_sub3 := RFC_subsystem1_gearState
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# RFC_act_sub4 := gearSelectionState[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# RFC_act_sub5 := (RFC_subsystem1_gearState == gearSelectionState[t])
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# RFC_act_sub6 := speed[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# RFC_act_sub7 := RPM[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# RFC_act_sub8 := outputTorque[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# RFC_act_sub9 := gear[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+##########
+# Inport #
+##########
+# RFC_act_sub10 := throttle[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+# Start of SubSystem (preconditions) #
+	############
+	# Constant #
+	############
+	# RFC_act_sub11 := RFC_preconditions_speedLimit
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# RFC_act_sub12 := (speed[t] < RFC_preconditions_speedLimit)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# RFC_act_sub13 := RFC_preconditions_rpmLimit
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# RFC_act_sub14 := (RPM[t] < RFC_preconditions_rpmLimit)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# RFC_act_sub15 := RFC_preconditions_torqueLimit
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# RFC_act_sub16 := (outputTorque[t] >= RFC_preconditions_torqueLimit)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# RFC_act_sub17 := RFC_preconditions_gear
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# RFC_act_sub18 := (gear[t] == RFC_preconditions_gear)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# RFC_act_sub19 := RFC_preconditions_throttleLimit
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	######################
+	# RelationalOperator #
+	######################
+	# RFC_act_sub20 := (throttle[t] >= RFC_preconditions_throttleLimit)
+	# Depth: 		1
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	############
+	# Constant #
+	############
+	# RFC_act_sub21 := 0
+	# Depth: 		0
+	# Modal depth: 	0
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		signal_exp
+
+	#############
+	# SubSystem #
+	#############
+	# RFC_act_sub22 := (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit)))
+	# Depth: 		3
+	# Modal depth: 	1
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+	#########
+	# Logic #
+	#########
+	# RFC_act_sub23 := (((((speed[t] < RFC_preconditions_speedLimit)  and  (RPM[t] < RFC_preconditions_rpmLimit))  and  (outputTorque[t] >= RFC_preconditions_torqueLimit))  and  (gear[t] == RFC_preconditions_gear))  and  (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit))))
+	# Depth: 		4
+	# Modal depth: 	1
+	# Start delay: 	0
+	# End delay: 	0
+	# Type: 		phi_exp
+
+# End of SubSystem (preconditions) #
+
+############
+# Constant #
+############
+# RFC_act_sub24 := 0
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#############
+# SubSystem #
+#############
+# RFC_act_sub25 := (not(0) and once_[0, 30]((((((speed[t] < RFC_preconditions_speedLimit)  and  (RPM[t] < RFC_preconditions_rpmLimit))  and  (outputTorque[t] >= RFC_preconditions_torqueLimit))  and  (gear[t] == RFC_preconditions_gear))  and  (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit))))))
+# Depth: 		6
+# Modal depth: 	2
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# RFC_act_sub26 := ((RFC_subsystem1_gearState == gearSelectionState[t])  and  (not(0) and once_[0, 30]((((((speed[t] < RFC_preconditions_speedLimit)  and  (RPM[t] < RFC_preconditions_rpmLimit))  and  (outputTorque[t] >= RFC_preconditions_torqueLimit))  and  (gear[t] == RFC_preconditions_gear))  and  (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit)))))))
+# Depth: 		7
+# Modal depth: 	2
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#############
+# SubSystem #
+#############
+# RFC_act_sub27 := (not(hist_[0, 1*dt](((RFC_subsystem1_gearState == gearSelectionState[t])  and  (not(0) and once_[0, 30]((((((speed[t] < RFC_preconditions_speedLimit)  and  (RPM[t] < RFC_preconditions_rpmLimit))  and  (outputTorque[t] >= RFC_preconditions_torqueLimit))  and  (gear[t] == RFC_preconditions_gear))  and  (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit))))))))))
+# Depth: 		9
+# Modal depth: 	3
+# Start delay: 	1
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# RFC_act_sub28 := not((not(hist_[0, 1*dt](((RFC_subsystem1_gearState == gearSelectionState[t])  and  (not(0) and once_[0, 30]((((((speed[t] < RFC_preconditions_speedLimit)  and  (RPM[t] < RFC_preconditions_rpmLimit))  and  (outputTorque[t] >= RFC_preconditions_torqueLimit))  and  (gear[t] == RFC_preconditions_gear))  and  (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit)))))))))))
+# Depth: 		10
+# Modal depth: 	3
+# Start delay: 	1
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := not((not(hist_[0, 1*dt](((RFC_subsystem1_gearState == gearSelectionState[t])  and  (not(0) and once_[0, 30]((((((speed[t] < RFC_preconditions_speedLimit)  and  (RPM[t] < RFC_preconditions_rpmLimit))  and  (outputTorque[t] >= RFC_preconditions_torqueLimit))  and  (gear[t] == RFC_preconditions_gear))  and  (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit)))))))))))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := not((not(hist_[0, 1*dt](((RFC_subsystem1_gearState == gearSelectionState[t])  and  (not(0) and once_[0, 30]((((((speed[t] < RFC_preconditions_speedLimit)  and  (RPM[t] < RFC_preconditions_rpmLimit))  and  (outputTorque[t] >= RFC_preconditions_torqueLimit))  and  (gear[t] == RFC_preconditions_gear))  and  (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit)))))))))))
+
+phi_RFC_act := alw_[t_init_RFC_artificial + 1*dt,t_final_RFC_artificial](not(not((not(hist_[0, 1*dt](((RFC_subsystem1_gearState == gearSelectionState[t])  and  (not(0) and once_[0, 30]((((((speed[t] < RFC_preconditions_speedLimit)  and  (RPM[t] < RFC_preconditions_rpmLimit))  and  (outputTorque[t] >= RFC_preconditions_torqueLimit))  and  (gear[t] == RFC_preconditions_gear))  and  (not(0) and once_[0, 30]((throttle[t] >= RFC_preconditions_throttleLimit)))))))))))))
+

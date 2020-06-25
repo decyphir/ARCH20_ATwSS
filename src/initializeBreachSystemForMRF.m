@@ -7,7 +7,8 @@ else
 end
 
 if contains(model, '_artificial')
-    nCP = [7 3 ones(1, 11)];
+    nArtificialCP = 3; % How many CP to use for each artificial input
+    nCP = [7 3 nArtificialCP*ones(1, 11)];
     input_gen.type = 'UniStep';   % uniform time steps
     input_gen.cp = nCP;           % number of control points
     input_gen.method = repmat({'pchip'}, 1, 13);
@@ -36,7 +37,9 @@ if contains(model, '_artificial')
     artificialSigs = allSigs(contains(allSigs, 'artificial_'));
     for sigCounter = 1:numel(artificialSigs)
         thisArtSig = artificialSigs{sigCounter};
-        eval(['B.SetParamRanges({''' thisArtSig '_u0''}, [0 100]);']);
+        for k = 1:nArtificialCP
+            eval(['B.SetParamRanges({''' thisArtSig '_u' num2str(k)-1 '''}, [0 100]);']);
+        end
     end
 end
 

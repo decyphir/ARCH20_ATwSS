@@ -1,0 +1,120 @@
+# Automatically generated STL formula
+# Model: AFE_art
+# Requirement: AFE_art
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_AFE_art = 0, t_final_AFE_art = 30, dt = 0.04, artificial_AFE_RFC_constant = 10, artificial_AOT_AFE_constant = 10, artificial_AFE_time = 10
+
+##########
+# Inport #
+##########
+# AFE_art_sub1 := artificial_AFE_RFC[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AFE_art_sub2 := artificial_AFE_RFC_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AFE_art_sub3 := (artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+##########
+# Inport #
+##########
+# AFE_art_sub4 := artificial_AOT_AFE[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AFE_art_sub5 := artificial_AOT_AFE_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# AFE_art_sub6 := (artificial_AOT_AFE[t] >= artificial_AOT_AFE_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# AFE_art_sub7 := ((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] >= artificial_AOT_AFE_constant))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# AFE_art_sub8 := 0
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# AFE_art_sub9 := artificial_AFE_time
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#############
+# SubSystem #
+#############
+# AFE_art_sub10 := (alw_[0, 10](((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] >= artificial_AOT_AFE_constant))))
+# Depth: 		3
+# Modal depth: 	1
+# Start delay: 	10
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := (alw_[0, 10](((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] >= artificial_AOT_AFE_constant))))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := (alw_[0, 10](((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] >= artificial_AOT_AFE_constant))))
+
+phi_AFE_art := (alw_[0, 10](((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)  or  (artificial_AOT_AFE[t] >= artificial_AOT_AFE_constant))))
+

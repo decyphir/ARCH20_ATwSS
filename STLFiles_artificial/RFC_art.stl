@@ -1,0 +1,80 @@
+# Automatically generated STL formula
+# Model: RFC_art
+# Requirement: RFC_art
+# Author: Johan Lidén Eddeland
+
+# The following systems have been skipped and logged:
+
+# Parameters
+param t_init_RFC_art = 0, t_final_RFC_art = 30, dt = 0.04, artificial_AFE_RFC_constant = 10, artificial_RFC_time = 10
+
+##########
+# Inport #
+##########
+# RFC_art_sub1 := artificial_AFE_RFC[t]
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# RFC_art_sub2 := artificial_AFE_RFC_constant
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# RFC_art_sub3 := (artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# RFC_art_sub4 := 0
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+############
+# Constant #
+############
+# RFC_art_sub5 := artificial_RFC_time
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+#############
+# SubSystem #
+#############
+# RFC_art_sub6 := (alw_[0, 10]((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)))
+# Depth: 		2
+# Modal depth: 	1
+# Start delay: 	10
+# End delay: 	0
+# Type: 		phi_exp
+
+# =========== SUBREQUIREMENTS ============
+# No prerequisites!
+# phi_sub1 := (alw_[0, 10]((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)))
+
+# =========== FINAL REQUIREMENT ===========
+# phi_implies is the formula when interpreting switches using "=>"
+# phi_implies := (alw_[0, 10]((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)))
+
+phi_RFC_art := (alw_[0, 10]((artificial_AFE_RFC[t] >= artificial_AFE_RFC_constant)))
+

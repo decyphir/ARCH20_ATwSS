@@ -19,14 +19,16 @@ end
 if ischar(modelsSearch)
 allSpecificationModels = dir(modelsSearch);
 elseif iscell(modelsSearch)
-    if all(contains(modelsSearch, '_artificial'))
+    if any(contains(modelsSearch, '_art'))
         % Initializing for model with artificial inputs
         % Use another folder specifically
-        resultsFolder = 'STLFiles_artificial';
-        allSpecificationModels = cell2mat(cellfun(@(c)(dir(sprintf('specRefModelsArtificial/%s',c))),  modelsSearch,  'UniformOutput',  false));
+        artificialReqIndex = contains(modelsSearch, '_art');
+        otherReqIndex = not(artificialReqIndex);
+        allSpecificationModelsOriginal = cell2mat(cellfun(@(c)(dir(sprintf('specRefModels/%s',c))),  modelsSearch(otherReqIndex),  'UniformOutput',  false));
+        allSpecificationModelsArtificial = cell2mat(cellfun(@(c)(dir(sprintf('specRefModelsArtificial/%s',c))),  modelsSearch(artificialReqIndex),  'UniformOutput',  false));
+        allSpecificationModels = [allSpecificationModelsOriginal, allSpecificationModelsArtificial];
     else
         % Use normal folder
-        resultsFolder = 'STLFiles';
         allSpecificationModels = cell2mat(cellfun(@(c)(dir(sprintf('specRefModels/%s',c))),  modelsSearch,  'UniformOutput',  false));
     end
 end
@@ -49,6 +51,11 @@ for specCounter = 1:numel(allSpecificationModels)
     
     thisModelName = strrep(fileName, '.slx', '');
     
+    if contains(thisModelName, '_art')
+        resultsFolder = 'STLFiles_artificial';
+    else
+        resultsFolder = 'STLFiles';
+    end
     
     if ~isfolder(resultsFolder)
         mkdir(resultsFolder);
@@ -96,7 +103,6 @@ for specCounter = 1:numel(allSpecificationModels)
         %    '! It needs to be set in initializeReqParameters.m']);
     end
     
-    
     % If all files are generated, we just load them
     if allFilesGenerated
         % Load the STL file
@@ -109,8 +115,57 @@ for specCounter = 1:numel(allSpecificationModels)
                 STL_ReadFile([resultsFolder '/' thisRequirement '.stl']);
             % The generated full requirement is the last one in the file
             thisReq = props{end};
-            allReqs{end+1} = thisReq;
-            allEndTimes(end+1) = thisEvalTime(2);
+            if contains(thisRequirement, '_art')
+                % This requirement is artificial - we need to create the
+                % final specifications as e.g. "phi_act or phi_art"
+                
+                % We need to find all of the corresponding _req and _act
+                % requirements in AT_and_specifications. 
+                originalModel = 'AT_and_specifications';
+                load_system(originalModel);
+                allOutports = find_system(originalModel, 'SearchDepth', 1, 'BlockType', 'Outport');
+                reqNameWithoutArt = strrep(thisRequirement, '_art', '');
+                similarOutports = allOutports(contains(allOutports, reqNameWithoutArt));
+                close_system(originalModel);
+                
+                % For each of these "similar outports" we need to create a
+                % spec. For example, for "ADI_art", the similar outports
+                % are ADI_req, ADI_act1, ADI_act2, ADI_act3. 
+                disp(' ');
+                for similarOutportCounter = 1:numel(similarOutports)
+                    thisSimilarOutport = similarOutports{similarOutportCounter};
+                    
+                    % thisSimilarOutport is e.g.
+                    % 'AT_and_specifications/ADI_req',
+                    % we need to isolate 'ADI_req' by finding the last
+                    % slash and removing everything before it. 
+                    slashIndices = strfind(thisSimilarOutport, '/');
+                    similarReqName = thisSimilarOutport(slashIndices(end)+1:end);
+                    
+                    % similarReq is e.g. 'ADI_req'.
+                    % This should exist in the STLFiles folder.
+                    if ~isfile(['STLFiles/' similarReqName '.stl'])
+                        error([similarReqName ' must be created before ' thisRequirement ' is created!']);
+                    end
+                    [~, reqProps, ~, ~] = ...
+                        STL_ReadFile(['STLFiles/' similarReqName '.stl']);
+                    similarReq = reqProps{end};
+                    
+                    % Connect the final artificial req
+                    finalReqString = ['(' disp(similarReq) ' or ' disp(thisReq) ')'];
+                    finalReq = STL_Formula(['phi_' similarReqName '_art'], finalReqString);
+                    
+                    % Add the final artificial req to the allReqs cell
+                    % array
+                    allReqs{end+1} = finalReq;
+                    allEndTimes(end+1) = thisEvalTime(2);
+                    disp(['Created phi_' similarReqName '_art as (' similarReqName ' or ' thisRequirement ')']);
+                end
+            else
+                allReqs{end+1} = thisReq;
+                allEndTimes(end+1) = thisEvalTime(2);
+            end
+            
             fprintf(' Done!\n');
         end
     else
@@ -143,6 +198,9 @@ for specCounter = 1:numel(allSpecificationModels)
                 specObj.specType = 'safety';
             elseif contains(thisRequirement, '_act')
                 specObj.specType = 'activation';
+            elseif contains(thisRequirement, '_art')
+                % Artificial requirement
+                specObj.specType = 'none';
             end
             
             % Set the corresponding variables in the testronSTL object
@@ -163,10 +221,59 @@ for specCounter = 1:numel(allSpecificationModels)
             % Store the requirement
             [~, props, ~, ~] = ...
                 STL_ReadFile([resultsFolder '/' thisRequirement '.stl']);
+            
             % The generated full requirement is the last one in the file
             thisReq = props{end};
-            allReqs{end+1} = thisReq;
-            allEndTimes(end+1) = specObj.endTime;
+            
+            if contains(thisRequirement, '_art')
+                % This requirement is artificial - we need to create the
+                % final specifications as e.g. "phi_act or phi_art"
+                
+                % We need to find all of the corresponding _req and _act
+                % requirements in AT_and_specifications. 
+                originalModel = 'AT_and_specifications';
+                load_system(originalModel);
+                allOutports = find_system(originalModel, 'SearchDepth', 1, 'BlockType', 'Outport');
+                reqNameWithoutArt = strrep(thisRequirement, '_art', '');
+                similarOutports = allOutports(contains(allOutports, reqNameWithoutArt));
+                close_system(originalModel);
+                
+                % For each of these "similar outports" we need to create a
+                % spec. For example, for "ADI_art", the similar outports
+                % are ADI_req, ADI_act1, ADI_act2, ADI_act3. 
+                for similarOutportCounter = 1:numel(similarOutports)
+                    thisSimilarOutport = similarOutports{similarOutportCounter};
+                    
+                    % thisSimilarOutport is e.g.
+                    % 'AT_and_specifications/ADI_req',
+                    % we need to isolate 'ADI_req' by finding the last
+                    % slash and removing everything before it. 
+                    slashIndices = strfind(thisSimilarOutport, '/');
+                    similarReqName = thisSimilarOutport(slashIndices(end)+1:end);
+                    
+                    % similarReq is e.g. 'ADI_req'.
+                    % This should exist in the STLFiles folder.
+                    if ~isfile(['STLFiles/' similarReqName '.stl'])
+                        error([similarReqName ' must be created before ' thisRequirement ' is created!']);
+                    end
+                    [~, reqProps, ~, ~] = ...
+                        STL_ReadFile(['STLFiles/' similarReqName '.stl']);
+                    similarReq = reqProps{end};
+                    
+                    % Connect the final artificial req
+                    finalReqString = ['(' disp(similarReq) ' or ' disp(thisReq) ')'];
+                    finalReq = STL_Formula(['phi_' similarReqName '_art'], finalReqString);
+                    
+                    % Add the final artificial req to the allReqs cell
+                    % array
+                    allReqs{end+1} = finalReq;
+                    allEndTimes(end+1) = specObj.endTime;
+                    disp(['Created phi_' similarReqName '_art as (' similarReqName ' or ' thisRequirement ')']);
+                end
+            else
+                allReqs{end+1} = thisReq;
+                allEndTimes(end+1) = specObj.endTime;
+            end
             
             % Load the logCounter after transformation has finished
             logCounter = specObj.logCounter;

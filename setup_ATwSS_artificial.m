@@ -9,8 +9,11 @@ bdclose('AT_and_specifications_artificial_breach');
 switch nargin
     case 0 
         % interactive mode
-        list_models = arrayfun(@(c)(c.name), dir('specRefModelsArtificial/*.slx'), 'UniformOutput', false);
+        list_models_original = arrayfun(@(c)(c.name), dir('specRefModels/*.slx'), 'UniformOutput', false);
+        list_models_artificial = arrayfun(@(c)(c.name), dir('specRefModelsArtificial/*.slx'), 'UniformOutput', false);
+        list_models = [list_models_original(:)' list_models_artificial(:)']';
         list_models = setdiff(list_models, {'specifications_artificial.slx'});
+        list_models = setdiff(list_models, {'specifications.slx'});
         select_models = select_cell_gui(list_models, list_models, 'Pick one or more requirement models');
         if isequal(select_models,0)
             return;
@@ -46,6 +49,19 @@ switch nargin
         for ispec = 1:numel(currentReqsNames)
             sp = strsplit(currentReqsNames{ispec},',');
             currentReqs{end+1} = STL_Formula(['phi_' sp{1}]);  % add STL_Formula object to currentReqs
+            
+            % Fix: For _art specs, the field in base_cfg and hard cfg don't
+            % contain _act or _req. 
+            % For example, for spec 'ADA_act_art', the field in base_cfg is
+            % 'ADA_art' (since the parameters are the same for both _req
+            % and _act). 
+            % To remedy this, we remove the middle part, e.g. '_act' from
+            % 'ADA_act_art'. 
+            if contains(sp{1}, '_art')
+                sp{1} = regexprep(sp{1}, '_act.*_', '_');
+                sp{1} = regexprep(sp{1}, '_req.*_', '_');
+            end
+            
             switch sp{2}
                 case 'base'
                     this_spec_params = fieldnames(base_cfg.(sp{1}));

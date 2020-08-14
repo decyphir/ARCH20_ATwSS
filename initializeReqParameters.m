@@ -286,65 +286,98 @@ for specCounter = 1:numel(baseFieldNames)
 end
 
 % Now, add artificial-only parameters
-base_cfg.ADA_art.artificial_ADA_constant = 10;
-base_cfg.ADI_art.artificial_ADI_constant = 10;
-base_cfg.ADI_art.artificial_ADI_BTL_constant = 10;
-base_cfg.AFE_art.artificial_AFE_RFC_constant = 10;
-base_cfg.AOT_art.artificial_AOT_AFE_constant = 10;
-base_cfg.AOT_art.artificial_AOT_ASL_constant = 10;
-base_cfg.ASL_art.artificial_ASL_ADA_constant = 10;
+base_cfg.ADA_art.artificial_ADA_min = 45;
+base_cfg.ADA_art.artificial_ADA_max = 55;
+base_cfg.ADA_art.artificial_ADI_min = 45;
+base_cfg.ADA_art.artificial_ADI_max = 55;
+base_cfg.ADA_art.artificial_ADI_BTL_min = 45;
+base_cfg.ADA_art.artificial_ADI_BTL_max = 55;
+base_cfg.ADA_art.artificial_AFE_RFC_min = 45;
+base_cfg.ADA_art.artificial_AFE_RFC_max = 55;
+base_cfg.ADA_art.artificial_AOT_AFE_min = 45;
+base_cfg.ADA_art.artificial_AOT_AFE_max = 55;
+base_cfg.ADA_art.artificial_AOT_ASL_min = 45;
+base_cfg.ADA_art.artificial_AOT_ASL_max = 55;
+base_cfg.ADA_art.artificial_ASL_ADA_min = 45;
+base_cfg.ADA_art.artificial_ASL_ADA_max = 55;
 
 % Copy values to all the other _req requirements where needed
-base_cfg.BTL_art.artificial_ADI_BTL_constant = ...
-    base_cfg.ADI_art.artificial_ADI_BTL_constant;
-base_cfg.RFC_art.artificial_AFE_RFC_constant = ...
-    base_cfg.AFE_art.artificial_AFE_RFC_constant;
-base_cfg.AFE_art.artificial_AOT_AFE_constant = ...
-    base_cfg.AOT_art.artificial_AOT_AFE_constant;
-base_cfg.AFE_art.artificial_AOT_AFE_constant = ...
-    base_cfg.AOT_art.artificial_AOT_AFE_constant;
-base_cfg.ASL_art.artificial_AOT_ASL_constant = ...
-    base_cfg.AOT_art.artificial_AOT_ASL_constant;
-base_cfg.ADA_art.artificial_ASL_ADA_constant = ...
-    base_cfg.ASL_art.artificial_ASL_ADA_constant;
+base_cfg.BTL_art.artificial_ADI_BTL_min = ...
+    base_cfg.ADI_art.artificial_ADI_BTL_min;
+base_cfg.BTL_art.artificial_ADI_BTL_max = ...
+    base_cfg.ADI_art.artificial_ADI_BTL_max;
+base_cfg.RFC_art.artificial_AFE_RFC_min = ...
+    base_cfg.AFE_art.artificial_AFE_RFC_min;
+base_cfg.RFC_art.artificial_AFE_RFC_max = ...
+    base_cfg.AFE_art.artificial_AFE_RFC_max;
+base_cfg.AFE_art.artificial_AOT_AFE_min = ...
+    base_cfg.AOT_art.artificial_AOT_AFE_min;
+base_cfg.AFE_art.artificial_AOT_AFE_max = ...
+    base_cfg.AOT_art.artificial_AOT_AFE_max;
+base_cfg.AFE_art.artificial_AOT_AFE_min = ...
+    base_cfg.AOT_art.artificial_AOT_AFE_min;
+base_cfg.AFE_art.artificial_AOT_AFE_max = ...
+    base_cfg.AOT_art.artificial_AOT_AFE_max;
+base_cfg.ASL_art.artificial_AOT_ASL_min = ...
+    base_cfg.AOT_art.artificial_AOT_ASL_min;
+base_cfg.ASL_art.artificial_AOT_ASL_max = ...
+    base_cfg.AOT_art.artificial_AOT_ASL_max;
+base_cfg.ADA_art.artificial_ASL_ADA_min = ...
+    base_cfg.ASL_art.artificial_ASL_ADA_min;
+base_cfg.ADA_art.artificial_ASL_ADA_max = ...
+    base_cfg.ASL_art.artificial_ASL_ADA_max;
 
 % Artificial thresholds for ARCH specs
-base_cfg.ARCH_AT1_art.artificial_ARCH_AT1_constant = 10;
-base_cfg.ARCH_AT2_art.artificial_ARCH_AT2_constant = 10;
-base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_constant = 10;
-base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_constant = 10;
+base_cfg.ARCH_AT1_art.artificial_ARCH_AT1_min = 45;
+base_cfg.ARCH_AT1_art.artificial_ARCH_AT1_max = 55;
+base_cfg.ARCH_AT2_art.artificial_ARCH_AT2_min = 45;
+base_cfg.ARCH_AT2_art.artificial_ARCH_AT2_max = 55;
+base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_min = 45;
+base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_max = 55;
+base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_min = 45;
+base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_min = 55;
 
 % Copy values to other ARCH _req specs as needed
-base_cfg.ARCH_AT52_art.artificial_ARCH_AT5_constant = ...
-    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_constant;
-base_cfg.ARCH_AT53_art.artificial_ARCH_AT5_constant = ...
-    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_constant;
-base_cfg.ARCH_AT54_art.artificial_ARCH_AT5_constant = ...
-    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_constant;
-base_cfg.ARCH_AT6b_art.artificial_ARCH_AT6_constant = ...
-    base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_constant;
-base_cfg.ARCH_AT6c_art.artificial_ARCH_AT6_constant = ...
-    base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_constant;
+base_cfg.ARCH_AT52_art.artificial_ARCH_AT5_min = ...
+    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_min;
+base_cfg.ARCH_AT52_art.artificial_ARCH_AT5_max = ...
+    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_max;
+base_cfg.ARCH_AT53_art.artificial_ARCH_AT5_min = ...
+    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_min;
+base_cfg.ARCH_AT53_art.artificial_ARCH_AT5_max = ...
+    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_max;
+base_cfg.ARCH_AT54_art.artificial_ARCH_AT5_min = ...
+    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_min;
+base_cfg.ARCH_AT54_art.artificial_ARCH_AT5_max = ...
+    base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_max;
+base_cfg.ARCH_AT6b_art.artificial_ARCH_AT6_min = ...
+    base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_min;
+base_cfg.ARCH_AT6b_art.artificial_ARCH_AT6_max = ...
+    base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_max;
+base_cfg.ARCH_AT6c_art.artificial_ARCH_AT6_min = ...
+    base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_min;
+base_cfg.ARCH_AT6c_art.artificial_ARCH_AT6_max = ...
+    base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_max;
 
 % Add all artificial temporal parameters for Volvo-inspired specs
-base_cfg.ADA_art.artificial_ADA_time = 10;
-base_cfg.ADI_art.artificial_ADI_time = 10;
-base_cfg.AFE_art.artificial_AFE_time = 10;
-base_cfg.AOT_art.artificial_AOT_time = 10;
-base_cfg.ASL_art.artificial_ASL_time = 10;
-base_cfg.BTL_art.artificial_BTL_time = 10;
-base_cfg.RFC_art.artificial_RFC_time = 10;
+base_cfg.ADA_art.artificial_ADA_time = 15;
+base_cfg.ADI_art.artificial_ADI_time = 15;
+base_cfg.AFE_art.artificial_AFE_time = 15;
+base_cfg.AOT_art.artificial_AOT_time = 15;
+base_cfg.ASL_art.artificial_ASL_time = 15;
+base_cfg.BTL_art.artificial_BTL_time = 15;
+base_cfg.RFC_art.artificial_RFC_time = 15;
 
 % Add all artificial temporal parameters for ARCH specs
-base_cfg.ARCH_AT1_art.artificial_ARCH_AT1_time = 20;
-base_cfg.ARCH_AT2_art.artificial_ARCH_AT2_time = 10;
-base_cfg.ARCH_AT51_art.artificial_ARCH_AT51_time = 30;
-base_cfg.ARCH_AT52_art.artificial_ARCH_AT52_time = 30;
-base_cfg.ARCH_AT53_art.artificial_ARCH_AT53_time = 30;
-base_cfg.ARCH_AT54_art.artificial_ARCH_AT54_time = 30;
-base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6a_time = 30;
-base_cfg.ARCH_AT6b_art.artificial_ARCH_AT6b_time = 30;
-base_cfg.ARCH_AT6c_art.artificial_ARCH_AT6c_time = 30;
+base_cfg.ARCH_AT1_art.artificial_ARCH_AT1_time = 15;
+base_cfg.ARCH_AT2_art.artificial_ARCH_AT2_time = 15;
+base_cfg.ARCH_AT51_art.artificial_ARCH_AT51_time = 15;
+base_cfg.ARCH_AT52_art.artificial_ARCH_AT52_time = 15;
+base_cfg.ARCH_AT53_art.artificial_ARCH_AT53_time = 15;
+base_cfg.ARCH_AT54_art.artificial_ARCH_AT54_time = 15;
+base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6a_time = 15;
+base_cfg.ARCH_AT6b_art.artificial_ARCH_AT6b_time = 15;
+base_cfg.ARCH_AT6c_art.artificial_ARCH_AT6c_time = 15;
 
 
 %% params struct with everything

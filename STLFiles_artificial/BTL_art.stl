@@ -6,7 +6,7 @@
 # The following systems have been skipped and logged:
 
 # Parameters
-param t_init_BTL_art = 0, t_final_BTL_art = 30, dt = 0.04, artificial_ADI_BTL_constant = 10, artificial_BTL_time = 10
+param t_init_BTL_art = 0, t_final_BTL_art = 30, dt = 0.04, artificial_ADI_BTL_min = 45, artificial_ADI_BTL_max = 55, artificial_BTL_time = 15
 
 ##########
 # Inport #
@@ -21,7 +21,7 @@ param t_init_BTL_art = 0, t_final_BTL_art = 30, dt = 0.04, artificial_ADI_BTL_co
 ############
 # Constant #
 ############
-# BTL_art_sub2 := artificial_ADI_BTL_constant
+# BTL_art_sub2 := artificial_ADI_BTL_min
 # Depth: 		0
 # Modal depth: 	0
 # Start delay: 	0
@@ -31,7 +31,7 @@ param t_init_BTL_art = 0, t_final_BTL_art = 30, dt = 0.04, artificial_ADI_BTL_co
 ######################
 # RelationalOperator #
 ######################
-# BTL_art_sub3 := (artificial_ADI_BTL[t] >= artificial_ADI_BTL_constant)
+# BTL_art_sub3 := (artificial_ADI_BTL[t] > artificial_ADI_BTL_min)
 # Depth: 		1
 # Modal depth: 	0
 # Start delay: 	0
@@ -41,7 +41,47 @@ param t_init_BTL_art = 0, t_final_BTL_art = 30, dt = 0.04, artificial_ADI_BTL_co
 ############
 # Constant #
 ############
-# BTL_art_sub4 := 0
+# BTL_art_sub4 := artificial_ADI_BTL_max
+# Depth: 		0
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		signal_exp
+
+######################
+# RelationalOperator #
+######################
+# BTL_art_sub5 := (artificial_ADI_BTL[t] < artificial_ADI_BTL_max)
+# Depth: 		1
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# BTL_art_sub6 := ((artificial_ADI_BTL[t] > artificial_ADI_BTL_min)  and  (artificial_ADI_BTL[t] < artificial_ADI_BTL_max))
+# Depth: 		2
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# BTL_art_sub7 := not(((artificial_ADI_BTL[t] > artificial_ADI_BTL_min)  and  (artificial_ADI_BTL[t] < artificial_ADI_BTL_max)))
+# Depth: 		3
+# Modal depth: 	0
+# Start delay: 	0
+# End delay: 	0
+# Type: 		phi_exp
+
+############
+# Constant #
+############
+# BTL_art_sub8 := 0
 # Depth: 		0
 # Modal depth: 	0
 # Start delay: 	0
@@ -51,7 +91,7 @@ param t_init_BTL_art = 0, t_final_BTL_art = 30, dt = 0.04, artificial_ADI_BTL_co
 ############
 # Constant #
 ############
-# BTL_art_sub5 := artificial_BTL_time
+# BTL_art_sub9 := artificial_BTL_time
 # Depth: 		0
 # Modal depth: 	0
 # Start delay: 	0
@@ -61,20 +101,20 @@ param t_init_BTL_art = 0, t_final_BTL_art = 30, dt = 0.04, artificial_ADI_BTL_co
 #############
 # SubSystem #
 #############
-# BTL_art_sub6 := (alw_[0, 10]((artificial_ADI_BTL[t] >= artificial_ADI_BTL_constant)))
-# Depth: 		2
+# BTL_art_sub10 := (alw_[0, artificial_BTL_time](not(((artificial_ADI_BTL[t] > artificial_ADI_BTL_min)  and  (artificial_ADI_BTL[t] < artificial_ADI_BTL_max)))))
+# Depth: 		4
 # Modal depth: 	1
-# Start delay: 	10
+# Start delay: 	15
 # End delay: 	0
 # Type: 		phi_exp
 
 # =========== SUBREQUIREMENTS ============
 # No prerequisites!
-# phi_sub1 := (alw_[0, 10]((artificial_ADI_BTL[t] >= artificial_ADI_BTL_constant)))
+# phi_sub1 := (alw_[0, artificial_BTL_time](not(((artificial_ADI_BTL[t] > artificial_ADI_BTL_min)  and  (artificial_ADI_BTL[t] < artificial_ADI_BTL_max)))))
 
 # =========== FINAL REQUIREMENT ===========
 # phi_implies is the formula when interpreting switches using "=>"
-# phi_implies := (alw_[0, 10]((artificial_ADI_BTL[t] >= artificial_ADI_BTL_constant)))
+# phi_implies := (alw_[0, artificial_BTL_time](not(((artificial_ADI_BTL[t] > artificial_ADI_BTL_min)  and  (artificial_ADI_BTL[t] < artificial_ADI_BTL_max)))))
 
-phi_BTL_art := (alw_[0, 10]((artificial_ADI_BTL[t] >= artificial_ADI_BTL_constant)))
+phi_BTL_art := (alw_[0, artificial_BTL_time](not(((artificial_ADI_BTL[t] > artificial_ADI_BTL_min)  and  (artificial_ADI_BTL[t] < artificial_ADI_BTL_max)))))
 

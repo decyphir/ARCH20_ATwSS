@@ -288,18 +288,18 @@ end
 % Now, add artificial-only parameters
 base_cfg.ADA_art.artificial_ADA_min = 45;
 base_cfg.ADA_art.artificial_ADA_max = 55;
-base_cfg.ADA_art.artificial_ADI_min = 45;
-base_cfg.ADA_art.artificial_ADI_max = 55;
-base_cfg.ADA_art.artificial_ADI_BTL_min = 45;
-base_cfg.ADA_art.artificial_ADI_BTL_max = 55;
-base_cfg.ADA_art.artificial_AFE_RFC_min = 45;
-base_cfg.ADA_art.artificial_AFE_RFC_max = 55;
-base_cfg.ADA_art.artificial_AOT_AFE_min = 45;
-base_cfg.ADA_art.artificial_AOT_AFE_max = 55;
-base_cfg.ADA_art.artificial_AOT_ASL_min = 45;
-base_cfg.ADA_art.artificial_AOT_ASL_max = 55;
-base_cfg.ADA_art.artificial_ASL_ADA_min = 45;
-base_cfg.ADA_art.artificial_ASL_ADA_max = 55;
+base_cfg.ADI_art.artificial_ADI_min = 45;
+base_cfg.ADI_art.artificial_ADI_max = 55;
+base_cfg.ADI_art.artificial_ADI_BTL_min = 45;
+base_cfg.ADI_art.artificial_ADI_BTL_max = 55;
+base_cfg.AFE_art.artificial_AFE_RFC_min = 45;
+base_cfg.AFE_art.artificial_AFE_RFC_max = 55;
+base_cfg.AOT_art.artificial_AOT_AFE_min = 45;
+base_cfg.AOT_art.artificial_AOT_AFE_max = 55;
+base_cfg.AOT_art.artificial_AOT_ASL_min = 45;
+base_cfg.AOT_art.artificial_AOT_ASL_max = 55;
+base_cfg.ASL_art.artificial_ASL_ADA_min = 45;
+base_cfg.ASL_art.artificial_ASL_ADA_max = 55;
 
 % Copy values to all the other _req requirements where needed
 base_cfg.BTL_art.artificial_ADI_BTL_min = ...

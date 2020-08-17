@@ -335,7 +335,7 @@ base_cfg.ARCH_AT2_art.artificial_ARCH_AT2_max = 55;
 base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_min = 45;
 base_cfg.ARCH_AT51_art.artificial_ARCH_AT5_max = 55;
 base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_min = 45;
-base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_min = 55;
+base_cfg.ARCH_AT6a_art.artificial_ARCH_AT6_max = 55;
 
 % Copy values to other ARCH _req specs as needed
 base_cfg.ARCH_AT52_art.artificial_ARCH_AT5_min = ...

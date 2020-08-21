@@ -68,20 +68,10 @@ param t_init_ARCH_AT54_art = 0, t_final_ARCH_AT54_art = 30, dt = 0.04, artificia
 # End delay: 	0
 # Type: 		phi_exp
 
-#########
-# Logic #
-#########
-# ARCH_AT54_art_sub7 := not(((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))
-# Depth: 		3
-# Modal depth: 	0
-# Start delay: 	0
-# End delay: 	0
-# Type: 		phi_exp
-
 ############
 # Constant #
 ############
-# ARCH_AT54_art_sub8 := 0
+# ARCH_AT54_art_sub7 := 0
 # Depth: 		0
 # Modal depth: 	0
 # Start delay: 	0
@@ -91,7 +81,7 @@ param t_init_ARCH_AT54_art = 0, t_final_ARCH_AT54_art = 30, dt = 0.04, artificia
 ############
 # Constant #
 ############
-# ARCH_AT54_art_sub9 := artificial_ARCH_AT54_time
+# ARCH_AT54_art_sub8 := artificial_ARCH_AT54_time
 # Depth: 		0
 # Modal depth: 	0
 # Start delay: 	0
@@ -101,7 +91,17 @@ param t_init_ARCH_AT54_art = 0, t_final_ARCH_AT54_art = 30, dt = 0.04, artificia
 #############
 # SubSystem #
 #############
-# ARCH_AT54_art_sub10 := (alw_[0, artificial_ARCH_AT54_time](not(((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))))
+# ARCH_AT54_art_sub9 := (alw_[0, artificial_ARCH_AT54_time](((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max))))
+# Depth: 		3
+# Modal depth: 	1
+# Start delay: 	15
+# End delay: 	0
+# Type: 		phi_exp
+
+#########
+# Logic #
+#########
+# ARCH_AT54_art_sub10 := not((alw_[0, artificial_ARCH_AT54_time](((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))))
 # Depth: 		4
 # Modal depth: 	1
 # Start delay: 	15
@@ -110,11 +110,11 @@ param t_init_ARCH_AT54_art = 0, t_final_ARCH_AT54_art = 30, dt = 0.04, artificia
 
 # =========== SUBREQUIREMENTS ============
 # No prerequisites!
-# phi_sub1 := (alw_[0, artificial_ARCH_AT54_time](not(((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))))
+# phi_sub1 := not((alw_[0, artificial_ARCH_AT54_time](((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))))
 
 # =========== FINAL REQUIREMENT ===========
 # phi_implies is the formula when interpreting switches using "=>"
-# phi_implies := (alw_[0, artificial_ARCH_AT54_time](not(((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))))
+# phi_implies := not((alw_[0, artificial_ARCH_AT54_time](((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))))
 
-phi_ARCH_AT54_art := (alw_[0, artificial_ARCH_AT54_time](not(((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))))
+phi_ARCH_AT54_art := not((alw_[0, artificial_ARCH_AT54_time](((artificial_ARCH_AT5[t] > artificial_ARCH_AT5_min)  and  (artificial_ARCH_AT5[t] < artificial_ARCH_AT5_max)))))
 

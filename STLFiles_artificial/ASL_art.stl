@@ -6,7 +6,7 @@
 # The following systems have been skipped and logged:
 
 # Parameters
-param t_init_ASL_art = 0, t_final_ASL_art = 30, dt = 0.04, artificial_AOT_ASL_min = 45, artificial_AOT_ASL_max = 55, artificial_ASL_ADA_min = 45, artificial_ASL_ADA_max = 55, artificial_ASL_time = 15
+param t_init_ASL_art = 0, t_final_ASL_art = 30, dt = 0.04, artificial_AOT_ASL_min = 45, artificial_AOT_ASL_max = 55, artificial_ASL_ADA_min = 10, artificial_ASL_ADA_max = 90, artificial_ASL_time = 15
 
 ##########
 # Inport #

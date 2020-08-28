@@ -6,7 +6,7 @@
 # The following systems have been skipped and logged:
 
 # Parameters
-param t_init_AOT_art = 0, t_final_AOT_art = 30, dt = 0.04, artificial_AOT_AFE_min = 45, artificial_AOT_AFE_max = 55, artificial_AOT_ASL_min = 45, artificial_AOT_ASL_max = 55, artificial_AOT_time = 15
+param t_init_AOT_art = 0, t_final_AOT_art = 30, dt = 0.04, artificial_AOT_AFE_min = 10, artificial_AOT_AFE_max = 90, artificial_AOT_ASL_min = 45, artificial_AOT_ASL_max = 55, artificial_AOT_time = 15
 
 ##########
 # Inport #

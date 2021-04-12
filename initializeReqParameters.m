@@ -1,3 +1,5 @@
+function [params, nonspecific, base_cfg, hard_cfg] = initializeReqParameters()
+
 %% Parameters not specific to base/hard scenarios
 % Step size for Simulink model
 nonspecific.fixedStepSize = 0.04;
@@ -183,23 +185,15 @@ base_cfg.RFC_req.RFC_preconditions_throttleLimit = 80;
 base_cfg.RFC_act = base_cfg.RFC_req;
 
 hard_cfg.RFC_req.RFC_subsystem1_evChangesTime = 3;
-
 hard_cfg.RFC_act.RFC_notAlwaysTime = 0.12;
-
 
 %% Initialize parameter values for ARCH benchmarks
 
 % AT1
 base_cfg.ARCH_AT1_req.ARCH_AT1_speedLimit = 120;
 base_cfg.ARCH_AT1_req.ARCH_AT1_speedLimitAct = 100;
-base_cfg.ARCH_AT1_req.ARCH_AT1_rpmLimit = 4750;
-base_cfg.ARCH_AT1_req.ARCH_AT1_rpmLimitAct = 4250;
-
 base_cfg.ARCH_AT1_act = base_cfg.ARCH_AT1_req;
-
-hard_cfg.ARCH_AT1_req.ARCH_AT1_speedLimit = [130 120];
-hard_cfg.ARCH_AT1_req.ARCH_AT1_rpmLimit   = [4750 5000];
-
+hard_cfg.ARCH_AT1_req.ARCH_AT1_speedLimit = 130;
 hard_cfg.ARCH_AT1_act.ARCH_AT1_speedLimit = 110;
 
 
@@ -390,4 +384,4 @@ for ispec = 1:numel(all_specs)
 end
 
 %% Assign all parameters in struct base_cfg.AFE_req in base workspace 
-cellfun(@(c)(assignin('base', c, params.(c))), fieldnames(params));
+%cellfun(@(c)(assignin('base', c, params.(c))), fieldnames(params));

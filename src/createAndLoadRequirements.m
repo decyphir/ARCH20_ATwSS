@@ -155,6 +155,24 @@ for specCounter = 1:numel(allSpecificationModels)
                     finalReqString = ['(' disp(similarReq) ' or ' disp(thisReq) ')'];
                     finalReq = STL_Formula(['phi_' similarReqName '_art'], finalReqString);
                     
+                    % Set the parameters of the artificial req to correct
+                    % values, as stored in the original reqs
+                    thisReqParams = get_params(thisReq);
+                    thisReqFieldNames = fieldnames(thisReqParams);
+                    for paramCounter = 1:numel(thisReqFieldNames)
+                        fieldName = thisReqFieldNames{paramCounter};
+                        fieldValue = thisReqParams.(fieldName);
+                        finalReq = set_params(finalReq, fieldName, fieldValue);
+                    end
+                    
+                    similarReqParams = get_params(similarReq);
+                    similarReqFieldNames = fieldnames(similarReqParams);
+                    for paramCounter = 1:numel(similarReqFieldNames)
+                        fieldName = similarReqFieldNames{paramCounter};
+                        fieldValue = similarReqParams.(fieldName);
+                        finalReq = set_params(finalReq, fieldName, fieldValue);
+                    end
+                    
                     % Add the final artificial req to the allReqs cell
                     % array
                     allReqs{end+1} = finalReq;
@@ -263,6 +281,24 @@ for specCounter = 1:numel(allSpecificationModels)
                     % Connect the final artificial req
                     finalReqString = ['(' disp(similarReq) ' or ' disp(thisReq) ')'];
                     finalReq = STL_Formula(['phi_' similarReqName '_art'], finalReqString);
+                    
+                    % Set the parameters of the artificial req to correct
+                    % values, as stored in the original reqs
+                    thisReqParams = get_params(thisReq);
+                    thisReqFieldNames = fieldnames(thisReqParams);
+                    for paramCounter = 1:numel(thisReqFieldNames)
+                        fieldName = thisReqFieldNames{paramCounter};
+                        fieldValue = thisReqParams.(fieldName);
+                        finalReq = set_params(finalReq, fieldName, fieldValue);
+                    end
+                    
+                    similarReqParams = get_params(similarReq);
+                    similarReqFieldNames = fieldnames(similarReqParams);
+                    for paramCounter = 1:numel(similarReqFieldNames)
+                        fieldName = similarReqFieldNames{paramCounter};
+                        fieldValue = similarReqParams.(fieldName);
+                        finalReq = set_params(finalReq, fieldName, fieldValue);
+                    end
                     
                     % Add the final artificial req to the allReqs cell
                     % array

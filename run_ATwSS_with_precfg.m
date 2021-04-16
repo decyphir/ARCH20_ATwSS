@@ -3,7 +3,7 @@ clear all
 bdclose all;
 
 %% Initialize model interface, input generator and requirements
-precfg = 'all_ARCH_base'; % other options are 'all_base', 'all_hard_1', 'all_hard_2','all_Volvo_base'
+precfg = 'all_ARCH_base'; % other options are 'all_base', 'all_hard_1', 'all_hard_2','all_ARCH_base','all_Volvo_base'
 use_artif_signals= true; 
 
 [B, R, cfg] = setup_ATwSS_system_and_reqs(precfg,use_artif_signals);

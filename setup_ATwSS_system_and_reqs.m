@@ -45,14 +45,16 @@ switch nargin
     end
         
     case 1  % expects a valid struct cfg
-        %try 
-           g.load_cfg(cfg);
-           close(g.hdle);
-       % catch
-       %    error('First argument is not a valid configuration structure');           
-       % end
-                
-    case 2  % expects a pre cfg string and a boolean for artificial signals        
+        try
+            g.load_cfg(cfg);
+            close(g.hdle);
+        catch
+            close(g.hdle);
+            error('First argument is not a valid configuration structure');
+            
+        end
+        
+    case 2  % expects a pre cfg string and a boolean for artificial signals
         pre_cfg = cfg;
         % checks if pre_cfg is a valid pre configuration
         all_cfg = g.get_by_id('popup_precfg','string');
@@ -62,9 +64,11 @@ switch nargin
             g.set_by_id('popup_precfg', 'value', idx_cfg);
             g.popup_precfg('callback');
         else
-            error('setup_ATwSS:invalid_pre_cfg','%s is an invalid configuration, use help setup_B_R to a get a list of valid options.', pre_cfg);
+            close(g.hdle);
+            error('setup_ATwSS:invalid_pre_cfg','%s is an invalid configuration, options are ''all_base'', ''all_hard_1'', ''all_hard_2'',''all_ARCH_base'' and ''all_Volvo_base''', pre_cfg);
         end           
         close(g.hdle);
+        g.reqs_cfg.artificial = artif;       
 end
 
 %% Init model, requirements and configure inputs
@@ -104,8 +108,10 @@ if cfg.artificial
             phi = set_params(phi, pbase);
             part = get_params(phi_art);
             phi = set_params(phi, part);            
-            currentReqs{idx_req} = phi;            
+            currentReqs{end+1} = phi;            
             cfg2params([req ',' cfg.(req)]); % for this req., pick the specific config and adjust parameters in the base workspace       
+        else
+            cfg=rmfield(cfg, req); % clean cfg struct output by removing empty requirements
         end
     end
     R = BreachRequirement(currentReqs);
@@ -149,6 +155,8 @@ else
             currentReqs{end+1} = phi{1}; % replace text with STL_Formula
             fprintf('done.\n');
             cfg2params([req ',' cfg.(req)]);
+        else
+            cfg=rmfield(cfg, req); % clean cfg struct output by removing empty requirements        
         end
     end
     R = BreachRequirement(currentReqs);

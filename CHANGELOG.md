@@ -1,3 +1,7 @@
+# Version 2.0.2
+- Fixed submodule breach not able to fetch commit 
+  (now tracks master branch of github breach repo)
+
 # Version 2.0.1
 - Bugfixes for setup script with artificial signals
 
